@@ -4,5 +4,6 @@ public enum TipoCasilla {
     NORMAL,
     SEGURO,
     PUERTA_CIELO,
-    CIELO
+    CIELO,
+    SALIDA
 }
