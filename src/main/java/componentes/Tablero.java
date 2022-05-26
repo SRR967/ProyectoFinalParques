@@ -28,13 +28,18 @@ public class Tablero {
         for(int i = 0; i < numCasillasLineales; i++) {
             var casillaActual = new Casilla();
             casillaActual.id = i;
-            casillaActual.color = Color.AMARILLO;
             casillaActual.tipo = TipoCasilla.NORMAL;
 
             // Cada 17 nodos ubico un nodo tipo
             if(i % 17 == 0) {
                 casillaActual.tipo = TipoCasilla.PUERTA_CIELO;
             }
+
+            if (i==5){
+                casillaActual.tipo= TipoCasilla.SALIDA;
+            }
+
+
 
             if(i != 0) {
                 // Si es la ultima casilla
