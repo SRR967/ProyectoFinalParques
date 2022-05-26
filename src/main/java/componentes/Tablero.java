@@ -7,6 +7,7 @@ import estructuras.TipoCasilla;
 public class Tablero {
 
     private Casilla[] casillas;
+    private Utilidades utilidades = new Utilidades();
 
     public Casilla[] getCasillas() {
         return casillas;
