@@ -2,18 +2,22 @@ package componentes;
 
 import enumeraciones.Color;
 import estructuras.Casilla;
+import estructuras.Ficha;
 import estructuras.TipoCasilla;
 
 public class Tablero {
 
     private Casilla[] casillas;
     private Utilidades utilidades = new Utilidades();
+    private Ficha ficha = new Ficha();
+    private Casilla casilla;
 
     public Casilla[] getCasillas() {
         return casillas;
     }
 
     public void inicializar(int numCasillasLineales) {
+
         construirCasillas(numCasillasLineales);
     }
 
@@ -30,14 +34,20 @@ public class Tablero {
             casillaActual.id = i;
             casillaActual.tipo = TipoCasilla.NORMAL;
 
-            // Cada 17 nodos ubico un nodo tipo
+            //En estos nodos ubico un nodo tipo SEGURO
+            if (i==12 || i==29 || i==46 || i==63){
+                casillaActual.tipo = TipoCasilla.SEGURO;
+            }
+            // Cada 17 nodos ubico un nodo tipo  PUERTA_CIELO
             if(i % 17 == 0) {
                 casillaActual.tipo = TipoCasilla.PUERTA_CIELO;
             }
-
-            if (i==5){
+            // En estos nodos ubico un nodo tipo SALIDA
+            if (i==5 || i==22 ||i==39||i==56){
                 casillaActual.tipo= TipoCasilla.SALIDA;
             }
+
+
 
 
 
@@ -56,6 +66,35 @@ public class Tablero {
         // Defino la casilla anterior de la primer casilla
         // La casilla anterior es la ultima casilla
         casillas[0].anterior = casillaAnterior;
+    }
+    public void construirCarcel(){
+
+        for (int i=0; i<utilidades.carcelAmarillo.length;i++){
+            utilidades.carcelAmarillo[i]= ficha ;
+        }
+    }
+    public  void crearFichas (){
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.color = Color.AMARILLO;
+            utilidades.carcelAmarillo[i] = fichaAux;
+        }
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.color = Color.AZUL;
+            utilidades.carcelAzul[i] = fichaAux;
+        }
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.color = Color.ROJO;
+            utilidades.carcelRojo[i] = fichaAux;
+        }
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.color = Color.VERDE;
+            utilidades.carcelVerde[i] = fichaAux;
+        }
+
     }
 
 }

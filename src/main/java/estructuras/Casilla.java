@@ -4,6 +4,7 @@ import enumeraciones.Color;
 
 public class Casilla {
     public int id;
+    public Ficha ficha;
 
     public Casilla siguiente;
     public Casilla anterior;

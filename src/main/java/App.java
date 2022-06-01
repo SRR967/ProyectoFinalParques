@@ -1,9 +1,11 @@
 import componentes.Tablero;
+import estructuras.Ficha;
 import estructuras.TipoCasilla;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Hola mundo");
+        Ficha ficha = new Ficha();
 
         Tablero tablero = new Tablero();
         tablero.inicializar(68);
@@ -19,7 +21,7 @@ public class App {
             it++;
             System.out.print("Casilla " + casilla.id);
             System.out.print(casilla.estaOcupada
-                    ? " [X] "
+                    ? " ["+ ficha.toString()+"]"
                     : " [ ] ");
             System.out.println("Tipo " + casilla.tipo);
 
