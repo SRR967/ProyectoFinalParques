@@ -27,6 +27,8 @@ public class Tablero {
      */
     private void construirCasillas(int numCasillasLineales) {
         casillas = new Casilla[numCasillasLineales];
+        int j = 0;
+        int k = 0;
 
         Casilla casillaAnterior = null;
         for(int i = 0; i < numCasillasLineales; i++) {
@@ -76,8 +78,8 @@ public class Tablero {
     public  void crearFichas (){
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
-            fichaAux.color = Color.AMARILLO;
-            utilidades.carcelAmarillo[i] = fichaAux;
+            fichaAux.setColor(Color.AMARILLO);
+            utilidades.carcelAmarillo.add(fichaAux);
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
@@ -86,13 +88,13 @@ public class Tablero {
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
-            fichaAux.color = Color.ROJO;
-            utilidades.carcelRojo[i] = fichaAux;
+            fichaAux.setColor(Color.ROJO);
+            utilidades.carcelRojo.add(fichaAux);
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
-            fichaAux.color = Color.VERDE;
-            utilidades.carcelVerde[i] = fichaAux;
+            fichaAux.setColor(Color.VERDE);
+            utilidades.carcelVerde.add(fichaAux);
         }
 
     }

@@ -4,7 +4,6 @@ import estructuras.TipoCasilla;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hola mundo");
         Ficha ficha = new Ficha();
 
         Tablero tablero = new Tablero();
