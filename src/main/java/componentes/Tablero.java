@@ -43,10 +43,14 @@ public class Tablero {
             // Cada 17 nodos ubico un nodo tipo  PUERTA_CIELO
             if(i % 17 == 0) {
                 casillaActual.tipo = TipoCasilla.PUERTA_CIELO;
+                casillaActual.color= utilidades.getColores().get(k);
+                k++;
             }
             // En estos nodos ubico un nodo tipo SALIDA
             if (i==5 || i==22 ||i==39||i==56){
                 casillaActual.tipo= TipoCasilla.SALIDA;
+                casillaActual.color= utilidades.getColores().get(j);
+                j++;
             }
 
 
@@ -69,32 +73,27 @@ public class Tablero {
         // La casilla anterior es la ultima casilla
         casillas[0].anterior = casillaAnterior;
     }
-    public void construirCarcel(){
 
-        for (int i=0; i<utilidades.carcelAmarillo.length;i++){
-            utilidades.carcelAmarillo[i]= ficha ;
-        }
-    }
     public  void crearFichas (){
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
             fichaAux.setColor(Color.AMARILLO);
-            utilidades.carcelAmarillo.add(fichaAux);
+            utilidades.getCarcelAmarillo().add(fichaAux);
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
             fichaAux.color = Color.AZUL;
-            utilidades.carcelAzul[i] = fichaAux;
+            utilidades.getCarcelAzul().add(fichaAux);
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
             fichaAux.setColor(Color.ROJO);
-            utilidades.carcelRojo.add(fichaAux);
+            utilidades.getCarcelRojo().add(fichaAux);
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
             fichaAux.setColor(Color.VERDE);
-            utilidades.carcelVerde.add(fichaAux);
+            utilidades.getCarcelVerde().add(fichaAux);
         }
 
     }

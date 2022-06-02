@@ -2,6 +2,9 @@ package componentes;
 
 import estructuras.Casilla;
 import estructuras.Ficha;
+import enumeraciones.Color;
+
+import java.util.ArrayList;
 
 public class Utilidades {
 
@@ -10,10 +13,19 @@ public class Utilidades {
     public Casilla[] cieloRojo = new Casilla[7];
     public Casilla[] cieloAzul = new Casilla[7];
 
-    public Ficha[] carcelAmarillo= new Ficha[3];
-    public Ficha[] carcelVerde= new Ficha[3];
-    public Ficha[] carcelRojo= new Ficha[3];
-    public Ficha[] carcelAzul= new Ficha[3];
+    private ArrayList<Ficha> carcelAmarillo= new ArrayList<>();
+    private ArrayList<Ficha> carcelVerde= new ArrayList<>();
+    private ArrayList<Ficha> carcelRojo= new ArrayList<>();
+    private ArrayList<Ficha> carcelAzul= new ArrayList<>();
+
+    private ArrayList<Color> colores= new ArrayList<Color>();
+
+    public Utilidades(){
+        colores.add(Color.AMARILLO);
+        colores.add(Color.VERDE);
+        colores.add(Color.ROJO);
+        colores.add(Color.AZUL);
+    }
 
 
     public Casilla[] getCieloAmarillo() {
