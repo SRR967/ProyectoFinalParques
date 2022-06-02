@@ -33,7 +33,7 @@ public class Tablero {
         Casilla casillaAnterior = null;
         for(int i = 0; i < numCasillasLineales; i++) {
             var casillaActual = new Casilla();
-            casillaActual.id = i;
+            casillaActual.setId(i) ;
             casillaActual.tipo = TipoCasilla.NORMAL;
 
             //En estos nodos ubico un nodo tipo SEGURO
@@ -82,7 +82,7 @@ public class Tablero {
         }
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
-            fichaAux.color = Color.AZUL;
+            fichaAux.setColor(Color.AZUL);
             utilidades.getCarcelAzul().add(fichaAux);
         }
         for (int i= 0; i<4; i++){

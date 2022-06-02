@@ -2,19 +2,39 @@ package estructuras;
 
 import enumeraciones.Color;
 
+import java.util.ArrayList;
+
 public class Casilla {
-    public int id;
-    public Ficha ficha;
+    private int id;
+    private ArrayList<Ficha> fichas = new ArrayList<>();
 
     public Casilla siguiente;
-    public Casilla anterior;
-    public Casilla[] alterna = null;
 
+    public Casilla anterior;
+
+    public Casilla[] alterna = null;
     public Color color;
 
     public TipoCasilla tipo;
 
-    public boolean estaOcupada;
-    public boolean puedeComer = true;
+    private boolean estaOcupada;
+
+    private boolean puedeComer = true;
+    public int getId() {
+        return id;
+    }
+
+    public void setFichas(ArrayList<Ficha> fichas) {
+        this.fichas = fichas;
+    }
+
+    public ArrayList<Ficha> getFichas() {
+        return fichas;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
 }
