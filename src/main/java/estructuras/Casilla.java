@@ -20,8 +20,13 @@ public class Casilla {
     private boolean estaOcupada;
 
     private boolean puedeComer = true;
-    public int getId() {
-        return id;
+
+    public Casilla(){
+
+    }
+
+    public Casilla(int id){
+        this.id = id;
     }
 
     public void setFichas(ArrayList<Ficha> fichas) {
@@ -36,5 +41,28 @@ public class Casilla {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
 
+
+    public boolean getIsEstaOcupada() {
+        return estaOcupada;
+    }
+
+    public void setEstaOcupada(boolean estaOcupada) {
+        this.estaOcupada = estaOcupada;
+    }
+
+    public boolean isEstaOcupada() {
+        return estaOcupada;
+    }
+
+    public boolean isPuedeComer() {
+        return puedeComer;
+    }
+
+    public void setPuedeComer(boolean puedeComer) {
+        this.puedeComer = puedeComer;
+    }
 }

@@ -12,14 +12,14 @@ public class App {
         var casillas = tablero.getCasillas();
         var casilla = casillas[0];
 
-        casillas[1].estaOcupada = true;
+        casillas[1].setEstaOcupada(true);
 
         final int MAX_IT = 100;
         int it = 0;
         while(it < MAX_IT) {
             it++;
-            System.out.print("Casilla " + casilla.id);
-            System.out.print(casilla.estaOcupada
+            System.out.print("Casilla " + casilla.getId());
+            System.out.print(casilla.getIsEstaOcupada()
                     ? " ["+ ficha.toString()+"]"
                     : " [ ] ");
             System.out.println("Tipo " + casilla.tipo);
