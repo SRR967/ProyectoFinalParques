@@ -30,7 +30,6 @@ public class App {
             casilla = casilla.siguiente;
         }
 
-        casilla.pruebas();
 
     }
 }

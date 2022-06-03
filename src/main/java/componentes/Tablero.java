@@ -99,21 +99,91 @@ public class Tablero {
 
     }
 
+    public void pruebas(Casilla casillaActual, int dadoTotal){
+        //Por si se hacen mas vainas
+    }
+
+
     public void mover (Ficha ficha, int dadoTotal){
+        Casilla casillaActual = ficha.getCasilla();
+
+        for(int i = 0; i < dadoTotal ; i++){
+               casillaActual = casillaActual.siguiente;
+        }
+
         //Modificar datos para coincidir con el nuevo destino
-        int numCasillaDestino = ficha.getCasilla().getId() + dadoTotal;
-        casillas[numCasillaDestino].getFichas().add(ficha); //Añadir ficha al arraylist de la casilla destino
+        casillaActual.getFichas().add(ficha); //Añadir ficha al arraylist de la casilla destino
 
         int indexPosAnterior = ficha.getCasilla().getFichas().indexOf(ficha);
-        ficha.getCasilla().getFichas().remove(indexPosAnterior);
+        ficha.getCasilla().getFichas().remove(indexPosAnterior); // Eliminar la casilla anterior de la ficha
 
-        ficha.setCasilla(casillas[numCasillaDestino]); //Setear el nuevo dato de casilla en ficha
+        ficha.setCasilla(casillaActual); //Setear el nuevo dato de casilla en ficha
+    }
 
-        for(int i = 0; i < dadoTotal)
+    public void comer(Ficha ficha){
+
+        ficha.setCasilla(null);
+
+        switch(ficha.getColor()){
+
+            case AMARILLO -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelAmarillo().add(ficha);
+            }
+
+            case VERDE -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelVerde().add(ficha);
+            }
+
+            case ROJO -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelRojo().add(ficha);
+            }
+
+            case AZUL -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelAzul().add(ficha);
+            }
+
+        }
 
     }
 
-    public void salirCarcel(ArrayList<Ficha> carcel){
+    //Se toma por hecho que hay al menos una ficha en la carcel
+    public void salirCarcelTurno(Color colorTurno){
+
+        switch(colorTurno){
+            case AMARILLO -> {
+                utilidades.getCarcelAmarillo().remove(0);
+                this.getCasillas()[5].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
+            }
+
+            case VERDE -> {
+                utilidades.getCarcelVerde().remove(0);
+                this.getCasillas()[22].getFichas().add(new Ficha(Color.VERDE,this.getCasillas()[22]));
+
+            }
+
+            case ROJO -> {
+                utilidades.getCarcelRojo().remove(0);
+                this.getCasillas()[39].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
+
+
+            }
+
+            case AZUL -> {
+                utilidades.getCarcelAzul().remove(0);
+                this.getCasillas()[56].getFichas().add(new Ficha(Color.AZUL, this.getCasillas()[56]));
+
+
+            }
+        }
+
+    }
+
+    //@TODO Preguntar sobre la implementacion de esta vaina con el control de juego
+    public void salirCarcelInicio(ArrayList<Ficha> carcel){
         if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
 
