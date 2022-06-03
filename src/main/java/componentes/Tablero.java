@@ -112,7 +112,7 @@ public class Tablero {
     public void salirCarcel(ArrayList<Ficha> carcel){
         if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
-
+            //solo para hacer el commit
 
                 case AMARILLO ->{
                     for(int i = 0; i < 4; i++) {
