@@ -58,10 +58,6 @@ public class Tablero {
                 j++;
             }
 
-
-
-
-
             if(i != 0) {
                 // Si es la ultima casilla
                 if(i == numCasillasLineales - 1) {
@@ -103,16 +99,23 @@ public class Tablero {
 
     }
 
-    public void mover (Ficha ficha, Dado dadoTotal){
+    public void mover (Ficha ficha, int dadoTotal){
+        //Modificar datos para coincidir con el nuevo destino
+        int numCasillaDestino = ficha.getCasilla().getId() + dadoTotal;
+        casillas[numCasillaDestino].getFichas().add(ficha); //Añadir ficha al arraylist de la casilla destino
 
+        int indexPosAnterior = ficha.getCasilla().getFichas().indexOf(ficha);
+        ficha.getCasilla().getFichas().remove(indexPosAnterior);
 
+        ficha.setCasilla(casillas[numCasillaDestino]); //Setear el nuevo dato de casilla en ficha
+
+        for(int i = 0; i < dadoTotal)
 
     }
 
     public void salirCarcel(ArrayList<Ficha> carcel){
         if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
-            //solo para hacer el commit
 
                 case AMARILLO ->{
                     for(int i = 0; i < 4; i++) {

@@ -45,7 +45,6 @@ public class Casilla {
         return id;
     }
 
-
     public boolean getIsEstaOcupada() {
         return estaOcupada;
     }

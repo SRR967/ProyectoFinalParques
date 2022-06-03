@@ -1,4 +1,5 @@
 import componentes.Tablero;
+import estructuras.Casilla;
 import estructuras.Ficha;
 import estructuras.TipoCasilla;
 
@@ -28,5 +29,8 @@ public class App {
                 System.out.println("----------------------------------------------------------------------");
             casilla = casilla.siguiente;
         }
+
+        casilla.pruebas();
+
     }
 }
