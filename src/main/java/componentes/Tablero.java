@@ -78,16 +78,6 @@ public class Tablero {
     public  void crearFichas (){
         for (int i= 0; i<4; i++){
             Ficha fichaAux = new Ficha();
-            fichaAux.setColor(Color.AMARILLO);
-            utilidades.getCarcelAmarillo().add(fichaAux);
-        }
-        for (int i= 0; i<4; i++){
-            Ficha fichaAux = new Ficha();
-            fichaAux.setColor(Color.AZUL);
-            utilidades.getCarcelAzul().add(fichaAux);
-        }
-        for (int i= 0; i<4; i++){
-            Ficha fichaAux = new Ficha();
             fichaAux.setColor(Color.ROJO);
             utilidades.getCarcelRojo().add(fichaAux);
         }
@@ -95,6 +85,16 @@ public class Tablero {
             Ficha fichaAux = new Ficha();
             fichaAux.setColor(Color.VERDE);
             utilidades.getCarcelVerde().add(fichaAux);
+        }
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.setColor(Color.AMARILLO);
+            utilidades.getCarcelAmarillo().add(fichaAux);
+        }
+        for (int i= 0; i<4; i++){
+            Ficha fichaAux = new Ficha();
+            fichaAux.setColor(Color.AZUL);
+            utilidades.getCarcelAzul().add(fichaAux);
         }
 
     }
@@ -126,21 +126,18 @@ public class Tablero {
 
         switch(ficha.getColor()){
 
-            case AMARILLO -> {
-                ficha.getCasilla().getFichas().remove(ficha);
-                utilidades.getCarcelAmarillo().add(ficha);
-            }
-
-            case VERDE -> {
-                ficha.getCasilla().getFichas().remove(ficha);
-                utilidades.getCarcelVerde().add(ficha);
-            }
-
             case ROJO -> {
                 ficha.getCasilla().getFichas().remove(ficha);
                 utilidades.getCarcelRojo().add(ficha);
             }
-
+            case VERDE -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelVerde().add(ficha);
+            }
+            case AMARILLO -> {
+                ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCarcelAmarillo().add(ficha);
+            }
             case AZUL -> {
                 ficha.getCasilla().getFichas().remove(ficha);
                 utilidades.getCarcelAzul().add(ficha);
@@ -154,22 +151,18 @@ public class Tablero {
     public void salirCarcelTurno(Color colorTurno){
 
         switch(colorTurno){
-            case AMARILLO -> {
-                utilidades.getCarcelAmarillo().remove(0);
-                this.getCasillas()[5].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
+            case ROJO -> {
+                utilidades.getCarcelRojo().remove(0);
+                this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
             }
-
             case VERDE -> {
                 utilidades.getCarcelVerde().remove(0);
                 this.getCasillas()[22].getFichas().add(new Ficha(Color.VERDE,this.getCasillas()[22]));
-
             }
 
-            case ROJO -> {
-                utilidades.getCarcelRojo().remove(0);
-                this.getCasillas()[39].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
-
-
+            case AMARILLO -> {
+                utilidades.getCarcelAmarillo().remove(0);
+                this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
             }
 
             case AZUL -> {
@@ -187,9 +180,9 @@ public class Tablero {
         if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
 
-                case AMARILLO ->{
+                case ROJO -> {
                     for(int i = 0; i < 4; i++) {
-                        this.getCasillas()[5].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
+                        this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
                     }
                 }
 
@@ -198,12 +191,12 @@ public class Tablero {
                         this.getCasillas()[22].getFichas().add(new Ficha(Color.VERDE,this.getCasillas()[22]));
                     }
                 }
-                case ROJO -> {
+
+                case AMARILLO ->{
                     for(int i = 0; i < 4; i++) {
-                        this.getCasillas()[39].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
+                        this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
                     }
                 }
-
 
                 case AZUL -> {
                     for(int i = 0; i < 4; i++) {

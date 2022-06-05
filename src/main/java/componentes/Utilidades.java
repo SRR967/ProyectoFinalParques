@@ -21,9 +21,9 @@ public class Utilidades {
     private ArrayList<Color> colores= new ArrayList<Color>();
 
     public Utilidades(){
-        colores.add(Color.AMARILLO);
-        colores.add(Color.VERDE);
         colores.add(Color.ROJO);
+        colores.add(Color.VERDE);
+        colores.add(Color.AMARILLO);
         colores.add(Color.AZUL);
     }
 
