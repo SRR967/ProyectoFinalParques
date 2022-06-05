@@ -9,7 +9,6 @@ import estructuras.TipoCasilla;
 import java.util.ArrayList;
 
 public class Tablero {
-
     private Casilla[] casillas;
     private Utilidades utilidades = new Utilidades();
     private Ficha ficha = new Ficha();
@@ -108,7 +107,14 @@ public class Tablero {
         Casilla casillaActual = ficha.getCasilla();
 
         for(int i = 0; i < dadoTotal ; i++){
-               casillaActual = casillaActual.siguiente;
+
+               if (casillaActual.tipo == TipoCasilla.PUERTA_CIELO && casillaActual.color == ficha.getColor()){
+                   llegarCaminoCielo(ficha,dadoTotal);
+
+
+               }else {
+                   casillaActual = casillaActual.siguiente;
+               }
         }
 
         //Modificar datos para coincidir con el nuevo destino
@@ -153,7 +159,7 @@ public class Tablero {
         switch(colorTurno){
             case ROJO -> {
                 utilidades.getCarcelRojo().remove(0);
-                this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
+                this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[5]));
             }
             case VERDE -> {
                 utilidades.getCarcelVerde().remove(0);
@@ -162,7 +168,7 @@ public class Tablero {
 
             case AMARILLO -> {
                 utilidades.getCarcelAmarillo().remove(0);
-                this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
+                this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[39]));
             }
 
             case AZUL -> {
@@ -182,7 +188,7 @@ public class Tablero {
 
                 case ROJO -> {
                     for(int i = 0; i < 4; i++) {
-                        this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[39]));
+                        this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[5]));
                     }
                 }
 
@@ -194,7 +200,7 @@ public class Tablero {
 
                 case AMARILLO ->{
                     for(int i = 0; i < 4; i++) {
-                        this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[5]));
+                        this.getCasillas()[39].getFichas().add(new Ficha(Color.AMARILLO, this.getCasillas()[39]));
                     }
                 }
 
