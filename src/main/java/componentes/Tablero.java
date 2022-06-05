@@ -154,16 +154,16 @@ public class Tablero {
     }
 
     //Se toma por hecho que hay al menos una ficha en la carcel
-    public void salirCarcelTurno(Color colorTurno){
+    public void salirCarcelTurno(Color colorTurno) {
 
-        switch(colorTurno){
+        switch (colorTurno) {
             case ROJO -> {
                 utilidades.getCarcelRojo().remove(0);
                 this.getCasillas()[5].getFichas().add(new Ficha(Color.ROJO, this.getCasillas()[5]));
             }
             case VERDE -> {
                 utilidades.getCarcelVerde().remove(0);
-                this.getCasillas()[22].getFichas().add(new Ficha(Color.VERDE,this.getCasillas()[22]));
+                this.getCasillas()[22].getFichas().add(new Ficha(Color.VERDE, this.getCasillas()[22]));
             }
 
             case AMARILLO -> {
@@ -219,6 +219,35 @@ public class Tablero {
 
 
     }
+    //Llegar camino cielo
+    public void llegarCaminoCielo(Ficha ficha, int dado){
+
+       int casillasmovidas= 68-ficha.getCasilla().getId() ;
+       int casillasMovidasCielo= dado-casillasmovidas;
+        ficha.setCasilla(null);
+       switch (ficha.getColor()){
+
+           case ROJO -> {
+               ficha.getCasilla().getFichas().remove(ficha);
+                utilidades.getCieloRojo().add(casillasmovidas,ficha);
+
+           }
+           case VERDE -> {
+               ficha.getCasilla().getFichas().remove(ficha);
+               utilidades.getCieloVerde().add(casillasmovidas,ficha);
+           }
+           case AMARILLO-> {
+               ficha.getCasilla().getFichas().remove(ficha);
+               utilidades.getCieloAmarillo().add(casillasmovidas,ficha);
+           }
+           case AZUL -> {
+               ficha.getCasilla().getFichas().remove(ficha);
+               utilidades.getCieloAzul().add(casillasmovidas,ficha);
+           }
+       }
+    }
+
+
     public void controlTurno (){
 
     }
