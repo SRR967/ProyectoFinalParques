@@ -183,7 +183,7 @@ public class Tablero {
 
     //@TODO Preguntar sobre la implementacion de esta vaina con el control de juego
     public void salirCarcelInicio(ArrayList<Ficha> carcel){
-        if (dado1.getNumero()==dado2.getNumero()){
+        //if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
 
                 case ROJO -> {
@@ -215,7 +215,7 @@ public class Tablero {
             }
 
             carcel.removeAll(carcel);
-        }
+        //}
 
 
     }
@@ -247,6 +247,49 @@ public class Tablero {
        }
     }
 
+    public void setCasillas(Casilla[] casillas) {
+        this.casillas = casillas;
+    }
+
+    public Utilidades getUtilidades() {
+        return utilidades;
+    }
+
+    public void setUtilidades(Utilidades utilidades) {
+        this.utilidades = utilidades;
+    }
+
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+
+    public Casilla getCasilla() {
+        return casilla;
+    }
+
+    public void setCasilla(Casilla casilla) {
+        this.casilla = casilla;
+    }
+
+    public Dado getDado1() {
+        return dado1;
+    }
+
+    public void setDado1(Dado dado1) {
+        this.dado1 = dado1;
+    }
+
+    public Dado getDado2() {
+        return dado2;
+    }
+
+    public void setDado2(Dado dado2) {
+        this.dado2 = dado2;
+    }
 
     public void controlTurno (){
 

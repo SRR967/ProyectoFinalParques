@@ -1,6 +1,5 @@
 package componentes;
 
-import estructuras.Casilla;
 import estructuras.Ficha;
 import enumeraciones.Color;
 
