@@ -9,7 +9,7 @@
     <AnchorPane prefHeight="641.0" prefWidth="618.0" style="-fx-background-color: gray;">
          <children>
             <Button layoutX="-11.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: red;" text="SEGURO" />
-            <Button layoutX="-11.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button fx:id="buttons" layoutX="-11.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="14.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="39.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="64.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
