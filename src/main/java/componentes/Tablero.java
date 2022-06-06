@@ -220,31 +220,33 @@ public class Tablero {
 
     }
     //Llegar camino cielo
-    public void llegarCaminoCielo(Ficha ficha, int dado){
+    public void llegarCaminoCielo(Ficha ficha, int nuevoDado){
 
-       int casillasmovidas= 68-ficha.getCasilla().getId() ;
-       int casillasMovidasCielo= dado-casillasmovidas;
-        ficha.setCasilla(null);
-       switch (ficha.getColor()){
+        switch (ficha.getColor()){
+            case ROJO -> {
+                utilidades.getCieloRojo().get(nuevoDado - 1).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloRojo().get(nuevoDado - 1));
+            }
 
-           case ROJO -> {
-               ficha.getCasilla().getFichas().remove(ficha);
-                utilidades.getCieloRojo().add(casillasmovidas,ficha);
+            case VERDE -> {
+                utilidades.getCieloVerde().get(nuevoDado - 1).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloVerde().get(nuevoDado - 1));
+            }
 
-           }
-           case VERDE -> {
-               ficha.getCasilla().getFichas().remove(ficha);
-               utilidades.getCieloVerde().add(casillasmovidas,ficha);
-           }
-           case AMARILLO-> {
-               ficha.getCasilla().getFichas().remove(ficha);
-               utilidades.getCieloAmarillo().add(casillasmovidas,ficha);
-           }
-           case AZUL -> {
-               ficha.getCasilla().getFichas().remove(ficha);
-               utilidades.getCieloAzul().add(casillasmovidas,ficha);
-           }
-       }
+            case AMARILLO -> {
+                utilidades.getCieloAmarillo().get(nuevoDado - 1).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloAmarillo().get(nuevoDado - 1));
+            }
+
+            case AZUL -> {
+                utilidades.getCieloAzul().get(nuevoDado - 1). getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloAzul().get(nuevoDado - 1));
+            }
+        }
     }
 
     public void setCasillas(Casilla[] casillas) {

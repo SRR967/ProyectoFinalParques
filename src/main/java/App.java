@@ -32,6 +32,8 @@ public class App extends Application {
         var casillas = tablero.getCasillas();
         var casilla = casillas[0];
 
+
+
         casillas[1].setEstaOcupada(true);
         final int MAX_IT = 100;
         int it = 0;

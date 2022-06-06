@@ -1,5 +1,6 @@
 package componentes;
 
+import estructuras.Casilla;
 import estructuras.Ficha;
 import enumeraciones.Color;
 
@@ -7,10 +8,10 @@ import java.util.ArrayList;
 
 public class Utilidades {
 
-    public ArrayList<Ficha>cieloAmarillo = new ArrayList<>(7);
-    public ArrayList<Ficha> cieloVerde = new ArrayList<>(7);
-    public ArrayList<Ficha> cieloRojo = new ArrayList<>(7);
-    public ArrayList<Ficha> cieloAzul = new ArrayList<>(7);
+    public ArrayList<Casilla>cieloAmarillo = new ArrayList<>();
+    public ArrayList<Casilla> cieloVerde = new ArrayList<>();
+    public ArrayList<Casilla> cieloRojo = new ArrayList<>();
+    public ArrayList<Casilla> cieloAzul = new ArrayList<>();
 
     private ArrayList<Ficha> carcelAmarillo= new ArrayList<>();
     private ArrayList<Ficha> carcelVerde= new ArrayList<>();
@@ -18,44 +19,59 @@ public class Utilidades {
     private ArrayList<Ficha> carcelAzul= new ArrayList<>();
 
     private ArrayList<Color> colores= new ArrayList<Color>();
+    private int casillaAux = 69;
 
     public Utilidades(){
         colores.add(Color.ROJO);
         colores.add(Color.VERDE);
         colores.add(Color.AMARILLO);
         colores.add(Color.AZUL);
+
+        //Casillas
+        llenarCasillasCielo(cieloRojo);
+        llenarCasillasCielo(cieloVerde);
+        llenarCasillasCielo(cieloAmarillo);
+        llenarCasillasCielo(cieloAzul);
+    }
+
+    public void llenarCasillasCielo(ArrayList<Casilla> casillasCielo){
+        for(int i = 0; i < 8; i++){
+            casillasCielo.add(new Casilla(casillaAux));
+            System.out.println(casillaAux);
+            casillaAux++;
+        }
     }
 
 
-    public ArrayList<Ficha> getCieloAmarillo() {
+    public ArrayList<Casilla> getCieloAmarillo() {
         return cieloAmarillo;
     }
 
-    public void setCieloAmarillo(ArrayList<Ficha> cieloAmarillo) {
+    public void setCieloAmarillo(ArrayList<Casilla> cieloAmarillo) {
         this.cieloAmarillo = cieloAmarillo;
     }
 
-    public ArrayList<Ficha> getCieloVerde() {
+    public ArrayList<Casilla> getCieloVerde() {
         return cieloVerde;
     }
 
-    public void setCieloVerde(ArrayList<Ficha> cieloVerde) {
+    public void setCieloVerde(ArrayList<Casilla> cieloVerde) {
         this.cieloVerde = cieloVerde;
     }
 
-    public ArrayList<Ficha> getCieloRojo() {
+    public ArrayList<Casilla> getCieloRojo() {
         return cieloRojo;
     }
 
-    public void setCieloRojo(ArrayList<Ficha> cieloRojo) {
+    public void setCieloRojo(ArrayList<Casilla> cieloRojo) {
         this.cieloRojo = cieloRojo;
     }
 
-    public ArrayList<Ficha> getCieloAzul() {
+    public ArrayList<Casilla> getCieloAzul() {
         return cieloAzul;
     }
 
-    public void setCieloAzul(ArrayList<Ficha> cieloAzul) {
+    public void setCieloAzul(ArrayList<Casilla> cieloAzul) {
         this.cieloAzul = cieloAzul;
     }
 
