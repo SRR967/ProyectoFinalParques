@@ -6,7 +6,6 @@ import estructuras.Jugador;
 public class Turno {
 
     private Jugador[] jugadores;
-    public Jugador[] getJugadores(){return jugadores;}
 
     public void inicializar(int numJugadores){
         contruirJugadores(numJugadores);
@@ -36,4 +35,6 @@ public class Turno {
         // El jugador anterior es el ultimo jugador
         jugadores[0].anterior = jugadorAnterior;
     }
+
+    public Jugador[] getJugadores(){return jugadores;}
 }

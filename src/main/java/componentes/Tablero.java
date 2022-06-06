@@ -1,10 +1,7 @@
 package componentes;
 
 import enumeraciones.Color;
-import estructuras.Casilla;
-import estructuras.Dado;
-import estructuras.Ficha;
-import estructuras.TipoCasilla;
+import estructuras.*;
 
 import java.util.ArrayList;
 
@@ -13,6 +10,7 @@ public class Tablero {
     private Utilidades utilidades = new Utilidades();
     private Ficha ficha = new Ficha();
     private Casilla casilla;
+    private Turno turnos = new Turno();
     private Dado dado1;
     private Dado dado2;
 
@@ -23,6 +21,11 @@ public class Tablero {
     public void inicializar(int numCasillasLineales) {
 
         construirCasillas(numCasillasLineales);
+        turnos.inicializar(4);
+        for(int i = 0; i < turnos.getJugadores().length; i++){
+            turnos.getJugadores()[i].setColor(utilidades.getColores().get(i));
+        }
+        crearFichas();
     }
 
     /***
@@ -155,7 +158,6 @@ public class Tablero {
 
     //Se toma por hecho que hay al menos una ficha en la carcel
     public void salirCarcelTurno(Color colorTurno) {
-
         switch (colorTurno) {
             case ROJO -> {
                 utilidades.getCarcelRojo().remove(0);
@@ -179,6 +181,32 @@ public class Tablero {
             }
         }
 
+    }
+
+    public boolean comprobarGanador(){
+        if(utilidades.getCieloRojo().get(7).getFichas().size() >= 4){
+            turnos.getJugadores()[0].setGanador(true);
+            System.out.println("Rojo ha ganado");
+            return true;
+        }
+        else if(utilidades.getCieloVerde().get(7).getFichas().size() >= 4){
+            turnos.getJugadores()[1].setGanador(true);
+            System.out.println("Azul ha ganado");
+            return true;
+        }
+        else if(utilidades.getCieloAmarillo().get(7).getFichas().size() >= 4){
+            turnos.getJugadores()[2].setGanador(true);
+            System.out.println("Amarillo ha ganado");
+            return true;
+        }
+        else if(utilidades.getCieloAzul().get(7).getFichas().size() >= 4){
+            turnos.getJugadores()[3].setGanador(true);
+            System.out.println("Azul ha ganado");
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     //@TODO Preguntar sobre la implementacion de esta vaina con el control de juego
@@ -249,6 +277,35 @@ public class Tablero {
         }
     }
 
+    //@TODO Comprobacion posible movimiento {Hacer en control turnos}
+    public void movimientoCielo(Ficha ficha, int dado){
+        switch (ficha.getColor()){
+            case ROJO -> {
+                utilidades.getCieloRojo().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloRojo().get(ficha.getCasilla().getId() + dado));
+            }
+
+            case VERDE -> {
+                utilidades.getCieloVerde().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloVerde().get(ficha.getCasilla().getId() + dado));
+            }
+
+            case AMARILLO -> {
+                utilidades.getCieloAmarillo().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloAmarillo().get(ficha.getCasilla().getId() + dado));
+            }
+
+            case AZUL -> {
+                utilidades.getCieloAzul().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha.getCasilla().getFichas().remove(ficha);
+                ficha.setCasilla(utilidades.getCieloAzul().get(ficha.getCasilla().getId() + dado));
+            }
+        }
+    }
+
     public void setCasillas(Casilla[] casillas) {
         this.casillas = casillas;
     }
@@ -293,8 +350,5 @@ public class Tablero {
         this.dado2 = dado2;
     }
 
-    public void controlTurno (){
-
-    }
 
 }

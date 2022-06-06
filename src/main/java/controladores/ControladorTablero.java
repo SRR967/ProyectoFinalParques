@@ -3,6 +3,7 @@ package controladores;
 import componentes.Tablero;
 import componentes.Utilidades;
 import enumeraciones.Color;
+import estructuras.Casilla;
 import estructuras.Dado;
 import estructuras.Ficha;
 import javafx.fxml.FXML;
@@ -38,15 +39,6 @@ public class ControladorTablero {
     public void initialize() {
         int cont=0;
         tablero.inicializar(68);
-        var casillas = tablero.getCasillas();
-        var casilla = casillas[0];
-
-        //casillas[5].getFichas().add(new Ficha(Color.ROJO));
-        //casillas[5].getFichas().add(new Ficha(Color.ROJO));
-        System.out.println(""+tablero.getCasillas()[1].getFichas().size());
-        tablero.crearFichas();
-        tablero.salirCarcelInicio(utilidades.getCarcelRojo());
-
 
         for (Node node: anchorPane.getChildren()) {
             if (node instanceof Button){
@@ -139,6 +131,11 @@ public class ControladorTablero {
 
         botonesCarcel.get(3).setStyle(botonesCarcel.get(3).getStyle() + "-fx-text-fill: blue");
         renderCarceles(utilidades.getCarcelAzul(), botonesCarcel.get(3));
+
+        renderCielo(utilidades.getCieloRojo(), botonesCieloRojo);
+        renderCielo(utilidades.getCieloVerde(), botonesCieloVerde);
+        renderCielo(utilidades.getCieloAmarillo(), botonesCieloAmarillo);
+        renderCielo(utilidades.getCieloAzul(), botonesCieloAzul);
     }
 
     private void renderCarceles(ArrayList<Ficha> fichasCarcel, Button carcel){
@@ -149,11 +146,36 @@ public class ControladorTablero {
     }
 
     @FXML
-    private void renderCielo(ArrayList<Ficha> fichasCielo, ArrayList<Button> botonesCielo){
-        for(int i = 0; i < fichasCielo.size(); i ++){
+    private void renderCielo(ArrayList<Casilla> casillasCielo, ArrayList<Button> botonesCielo){
+        for(int i = 0; i < casillasCielo.size()-1; i ++){
+            if(casillasCielo.get(i).getFichas().size() > 0){
 
+                for(int j = 0; j < casillasCielo.get(i).getFichas().size(); j++){
+                    switch (casillasCielo.get(i).getFichas().get(0).getColor()){
+                        case ROJO -> {
+                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: red;");
+                        }
+                        case VERDE -> {
+                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: green;");
+
+                        }
+                        case AMARILLO -> {
+                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: yellow;");
+                        }
+                        case AZUL -> {
+                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: blue;");
+                        }
+                    }
+
+
+                    botonesCielo.get(i).setText(botonesCielo.get(i).getText() + ficha.toString());
+                }
+
+            }
         }
     }
+
+
 
     @FXML
     private void clicCasillaHandler(MouseEvent event) {
