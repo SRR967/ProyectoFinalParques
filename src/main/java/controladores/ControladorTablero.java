@@ -25,8 +25,6 @@ public class ControladorTablero {
     private ArrayList<Button> botonesCieloAmarillo = new ArrayList<>();
     private ArrayList<Button> botonesCieloAzul = new ArrayList<>();
 
-
-
     private Tablero tablero= new Tablero();
     private Ficha ficha= new Ficha();
     private Utilidades utilidades = tablero.getUtilidades();
