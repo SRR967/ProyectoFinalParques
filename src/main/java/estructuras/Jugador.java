@@ -8,6 +8,7 @@ public class Jugador {
     public Jugador anterior;
     private Color color;
     private boolean isGanador;
+    private boolean fichasSacadas;
 
     public boolean isGanador() {
         return isGanador;

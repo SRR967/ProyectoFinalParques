@@ -193,6 +193,44 @@ public class ControladorDados {
         this.imgViewDado2 = imgViewDado2;
     }
 
+    public void setSumaTotal(int sumaTotal) {
+        this.sumaTotal = sumaTotal;
+    }
 
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public Dado getDadoA() {
+        return dadoA;
+    }
+
+    public Dado getDadoB() {
+        return dadoB;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public Button getGenerarNumero() {
+        return generarNumero;
+    }
+
+    public void setGenerarNumero(Button generarNumero) {
+        this.generarNumero = generarNumero;
+    }
+
+    public AnchorPane getAnchorpane() {
+        return anchorpane;
+    }
+
+    public void setAnchorpane(AnchorPane anchorpane) {
+        this.anchorpane = anchorpane;
+    }
 }
 

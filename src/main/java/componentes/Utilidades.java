@@ -18,6 +18,8 @@ public class Utilidades {
     private ArrayList<Ficha> carcelRojo= new ArrayList<>();
     private ArrayList<Ficha> carcelAzul= new ArrayList<>();
 
+    private  ArrayList<ArrayList> carceles = new ArrayList<>();
+
     private ArrayList<Color> colores= new ArrayList<Color>();
     private int casillaAux = 69;
 
@@ -32,6 +34,12 @@ public class Utilidades {
         llenarCasillasCielo(cieloVerde);
         llenarCasillasCielo(cieloAmarillo);
         llenarCasillasCielo(cieloAzul);
+
+        //Carceles
+        carceles.add(carcelRojo);
+        carceles.add(carcelVerde);
+        carceles.add(carcelAmarillo);
+        carceles.add(carcelAzul);
     }
 
     public void llenarCasillasCielo(ArrayList<Casilla> casillasCielo){
@@ -113,5 +121,21 @@ public class Utilidades {
 
     public void setColores(ArrayList<Color> colores) {
         this.colores = colores;
+    }
+
+    public ArrayList<ArrayList> getCarceles() {
+        return carceles;
+    }
+
+    public void setCarceles(ArrayList<ArrayList> carceles) {
+        this.carceles = carceles;
+    }
+
+    public int getCasillaAux() {
+        return casillaAux;
+    }
+
+    public void setCasillaAux(int casillaAux) {
+        this.casillaAux = casillaAux;
     }
 }

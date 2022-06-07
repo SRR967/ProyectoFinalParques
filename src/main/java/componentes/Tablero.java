@@ -14,10 +14,6 @@ public class Tablero {
     private Dado dado1;
     private Dado dado2;
 
-    public Casilla[] getCasillas() {
-        return casillas;
-    }
-
     public void inicializar(int numCasillasLineales) {
 
         construirCasillas(numCasillasLineales);
@@ -26,6 +22,14 @@ public class Tablero {
             turnos.getJugadores()[i].setColor(utilidades.getColores().get(i));
         }
         crearFichas();
+        asignarColoresTurnos();
+    }
+
+    public void asignarColoresTurnos(){
+        for(int i=0; i < turnos.getJugadores().length; i++){
+            turnos.getJugadores()[i].setColor(utilidades.getColores().get(i));
+            System.out.println("" + utilidades.getColores().get(i));
+        }
     }
 
     /***
@@ -131,7 +135,6 @@ public class Tablero {
 
     public void comer(Ficha ficha){
 
-        ficha.setCasilla(null);
 
         switch(ficha.getColor()){
 
@@ -154,9 +157,11 @@ public class Tablero {
 
         }
 
+        ficha.setCasilla(null);
     }
 
     //Se toma por hecho que hay al menos una ficha en la carcel
+
     public void salirCarcelTurno(Color colorTurno) {
         switch (colorTurno) {
             case ROJO -> {
@@ -182,7 +187,6 @@ public class Tablero {
         }
 
     }
-
     public boolean comprobarGanador(){
         if(utilidades.getCieloRojo().get(7).getFichas().size() >= 4){
             turnos.getJugadores()[0].setGanador(true);
@@ -210,6 +214,7 @@ public class Tablero {
     }
 
     //@TODO Preguntar sobre la implementacion de esta vaina con el control de juego
+
     public void salirCarcelInicio(ArrayList<Ficha> carcel){
         //if (dado1.getNumero()==dado2.getNumero()){
             switch (carcel.get(0).getColor()){
@@ -276,8 +281,8 @@ public class Tablero {
             }
         }
     }
-
     //@TODO Comprobacion posible movimiento {Hacer en control turnos}
+
     public void movimientoCielo(Ficha ficha, int dado){
         switch (ficha.getColor()){
             case ROJO -> {
@@ -305,7 +310,6 @@ public class Tablero {
             }
         }
     }
-
     public void setCasillas(Casilla[] casillas) {
         this.casillas = casillas;
     }
@@ -316,6 +320,10 @@ public class Tablero {
 
     public void setUtilidades(Utilidades utilidades) {
         this.utilidades = utilidades;
+    }
+
+    public Casilla[] getCasillas() {
+        return casillas;
     }
 
     public Ficha getFicha() {

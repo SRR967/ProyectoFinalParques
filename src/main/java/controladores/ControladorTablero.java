@@ -6,6 +6,8 @@ import enumeraciones.Color;
 import estructuras.Casilla;
 import estructuras.Dado;
 import estructuras.Ficha;
+import estructuras.Jugador;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
@@ -13,14 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 
 
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class ControladorTablero {
 
     @FXML
-    private Button botonesCasillas []= new Button[68];
-    //private ArrayList<Button> botonesCasillas = new ArrayList<>();
+    //private Button botonesCasillas []= new Button[68];
+    private ArrayList<Button> botonesCasillas = new ArrayList<>();
     private ArrayList<Button> botonesCarcel   = new ArrayList<>();
     //Por commit
 
@@ -41,6 +42,9 @@ public class ControladorTablero {
     public void initialize() {
         int cont=0;
         tablero.inicializar(68);
+
+        tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
+        tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
 
         for (Node node: anchorPane.getChildren()) {
             if (node instanceof Button){
@@ -73,7 +77,7 @@ public class ControladorTablero {
                 else if (node instanceof Button) {
 
                     Button button = ((Button) node);
-                    botonesCasillas[cont] =button;
+                    botonesCasillas.add(button);
                     cont++;
                 }
 
@@ -82,56 +86,122 @@ public class ControladorTablero {
         }
         //botonesCasillas[1].setText(ficha.toString());
         //botonesCasillas[1].setText(botonesCasillas[1].getText().concat(ficha.toString()));
+
+        botonesCarcel.get(0).setStyle(botonesCarcel.get(0).getStyle() + "-fx-text-fill: red");
+        botonesCarcel.get(1).setStyle(botonesCarcel.get(1).getStyle() + "-fx-text-fill: green");
+        botonesCarcel.get(2).setStyle(botonesCarcel.get(2).getStyle() + "-fx-text-fill: #786706");
+        botonesCarcel.get(3).setStyle(botonesCarcel.get(3).getStyle() + "-fx-text-fill: blue");
+
         render();
     }
 
     private void render (){
 
-        for (int i=0; i<botonesCasillas.length;i++){
+        for (int i=0; i<botonesCasillas.size();i++){
             ArrayList<Ficha> arraylistAux  = tablero.getCasillas()[i].getFichas();
             String aux = "";
             if (arraylistAux.size()>0){
 
                 switch (arraylistAux.get(0).getColor()){
                     case ROJO -> {
-                        botonesCasillas[i].setStyle(botonesCasillas[i].getStyle()+"-fx-text-fill: red");
-                    }
-                    case VERDE -> {
-                        botonesCasillas[i].setStyle(botonesCasillas[i].getStyle()+"-fx-text-fill: green");
+                        int indexAux = botonesCasillas.get(i).getStyle().length();
 
+                        if(!botonesCasillas.get(i).getStyle().contains("-fx-text-fill: red")) {
+
+                            if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: green")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: green", "-fx-text-fill: red"));
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: #786706")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: #786706","-fx-text-fill: red" ));
+                                System.out.println(botonesCasillas.get(i).getStyle());
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: blue")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: blue", "-fx-text-fill: red"));
+                            }
+                            else{
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle() + "-fx-text-fill: red");
+                            }
+
+                            }
+                        }
+                    case VERDE -> {
+                        if(!botonesCasillas.get(i).getStyle().contains("-fx-text-fill: green")) {
+
+                            if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: red")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: red", "-fx-text-fill: green"));
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: #786706")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: #786706","-fx-text-fill: green" ));
+                                System.out.println(botonesCasillas.get(i).getStyle());
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: blue")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: blue", "-fx-text-fill: green"));
+                            }
+                            else{
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle() + "-fx-text-fill: green");
+                            }
+
+                        }
                     }
                     case AMARILLO -> {
-                        botonesCasillas[i].setStyle(botonesCasillas[i].getStyle()+"-fx-text-fill: yellow");
+                        if(!botonesCasillas.get(i).getStyle().contains("-fx-text-fill: #786706")) {
+
+                            if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: red")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: red", "-fx-text-fill: #786706"));
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: green")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: green","-fx-text-fill: #786706" ));
+                                System.out.println(botonesCasillas.get(i).getStyle());
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: blue")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: blue", "-fx-text-fill: #786706"));
+                            }
+                            else{
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle() + "-fx-text-fill: #786706");
+                            }
+
+                        }
                     }
                     case AZUL -> {
-                        botonesCasillas[i].setStyle(botonesCasillas[i].getStyle()+"-fx-text-fill: blue");
+                        if(!botonesCasillas.get(i).getStyle().contains("-fx-text-fill: blue")) {
+
+                            if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: red")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: red", "-fx-text-fill: blue"));
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: green")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: green","-fx-text-fill: blue" ));
+                                System.out.println(botonesCasillas.get(i).getStyle());
+                            }
+                            else if(botonesCasillas.get(i).getStyle().contains("-fx-text-fill: #786706")){
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle().replace("-fx-text-fill: #786706", "-fx-text-fill: blue"));
+                            }
+                            else{
+                                botonesCasillas.get(i).setStyle(botonesCasillas.get(i).getStyle() + "-fx-text-fill: blue");
+                            }
+
+                        }
                     }
                 }
 
 
                 for (int j=0; j<arraylistAux.size();j++){
                     aux = aux+ ficha.toString();
-                    botonesCasillas[i].setText(aux);
+                    botonesCasillas.get(i).setText(aux);
                 }
+            }
+            else{
+                botonesCasillas.get(i).setText("");
             }
         }
 
-        //Render Carceles
-        //botonesCarcel.get(0).setText(botonesCarcel.get(0).getText() + "\n");
-        //for(int i = 0; i < utilidades.getCarcelRojo().size(); i++){
-        //    botonesCarcel.get(0).setText(botonesCarcel.get(0).getText() + ficha.toString());
-        //}
+        String auxStyle = "";
 
-        botonesCarcel.get(0).setStyle(botonesCarcel.get(0).getStyle() + "-fx-text-fill: red");
         renderCarceles(utilidades.getCarcelRojo(), botonesCarcel.get(0));
 
-        botonesCarcel.get(1).setStyle(botonesCarcel.get(1).getStyle() + "-fx-text-fill: green");
         renderCarceles(utilidades.getCarcelVerde(), botonesCarcel.get(1));
 
-        botonesCarcel.get(2).setStyle(botonesCarcel.get(2).getStyle() + "-fx-text-fill: #786706");
         renderCarceles(utilidades.getCarcelAmarillo(), botonesCarcel.get(2));
 
-        botonesCarcel.get(3).setStyle(botonesCarcel.get(3).getStyle() + "-fx-text-fill: blue");
         renderCarceles(utilidades.getCarcelAzul(), botonesCarcel.get(3));
 
         renderCielo(utilidades.getCieloRojo(), botonesCieloRojo);
@@ -141,9 +211,15 @@ public class ControladorTablero {
     }
 
     private void renderCarceles(ArrayList<Ficha> fichasCarcel, Button carcel){
-        carcel.setText(carcel.getText() + "\n");
-        for(int i = 0; i < fichasCarcel.size(); i++){
-            carcel.setText(carcel.getText()+ficha.toString());
+        //carcel.setText(carcel.getText() + "\n");
+        String textAux = "";
+        if(fichasCarcel.size() >0) {
+            for (int i = 0; i < fichasCarcel.size(); i++) {
+                textAux = textAux + ficha.toString();
+                carcel.setText(/*carcel.getText()+*/ textAux);
+            }
+        }else{
+            carcel.setText("");
         }
     }
 
@@ -162,7 +238,7 @@ public class ControladorTablero {
 
                         }
                         case AMARILLO -> {
-                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: yellow;");
+                            botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: #786706;");
                         }
                         case AZUL -> {
                             botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: blue;");
@@ -178,8 +254,28 @@ public class ControladorTablero {
     }
 
     public void movementEventHandler(javafx.event.ActionEvent actionEvent) {
-        Button button = (Button) actionEvent.getSource();
+        Color colorTurnoAux = Color.ROJO;
 
+
+        Button button = (Button) actionEvent.getSource();
+        int indexAux = botonesCasillas.indexOf(button);
+
+        if(controladorDados.getSumaTotal() != 0 && tablero.getCasillas()[indexAux].getFichas().size() != 0 ){
+            Ficha fichaAux = tablero.getCasillas()[indexAux].getFichas().get(0);
+            tablero.mover(fichaAux, controladorDados.getA());
+
+            for(int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++){
+                if(fichaAux.getCasilla().getFichas().get(i).getColor() != colorTurnoAux){
+                    tablero.comer(fichaAux.getCasilla().getFichas().get(i));
+                }
+            }
+            render();
+            controladorDados.setA(0);
+            controladorDados.setB(0);
+        }
+        else{
+            System.out.println("No hay fichas");
+        }
     }
 
     public ControladorDados getControladorDados() {
@@ -188,5 +284,20 @@ public class ControladorTablero {
 
     public void setControladorDados(ControladorDados controladorDados) {
         this.controladorDados = controladorDados;
+    }
+
+    public void salirCarcelController(ActionEvent actionEvent) {
+
+        System.out.println("A");
+
+        if(controladorDados.getA() == controladorDados.getB() && controladorDados.getSumaTotal() !=0){
+            Button button = (Button) actionEvent.getSource();
+            System.out.println(utilidades.getCarceles().get(botonesCarcel.indexOf(button)).size());
+            tablero.salirCarcelInicio(utilidades.getCarceles().get(botonesCarcel.indexOf(button)));
+            render();
+            controladorDados.setA(0);
+            controladorDados.setB(0);
+        }
+
     }
 }

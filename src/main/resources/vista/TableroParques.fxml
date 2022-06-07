@@ -76,10 +76,10 @@
             <Button layoutX="39.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="14.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="-11.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="15.0" layoutY="441.0" mnemonicParsing="false" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="RED" />
-            <Button layoutX="440.0" layoutY="441.0" mnemonicParsing="false" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="GREEN" />
-            <Button layoutX="440.0" layoutY="14.0" mnemonicParsing="false" prefHeight="202.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="YELLOW" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="BLUE" />
+            <Button layoutX="15.0" layoutY="441.0" mnemonicParsing="false" onAction="#salirCarcelController" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="RED" />
+            <Button layoutX="440.0" layoutY="441.0" mnemonicParsing="false" onAction="#salirCarcelController" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="GREEN" />
+            <Button layoutX="440.0" layoutY="14.0" mnemonicParsing="false" onAction="#salirCarcelController" prefHeight="202.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="YELLOW" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#salirCarcelController" prefHeight="200.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="BLUE" />
             <Button layoutX="14.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" />
             <Button layoutX="39.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" />
             <Button layoutX="64.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" />
