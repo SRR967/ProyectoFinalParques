@@ -134,6 +134,7 @@ public class ControladorDados {
                 Image imagenAux = new Image("imagenes/Dado6.png");
                 setImgDado2(imagenAux);
                 imgViewDado2.setImage(imagenAux);
+                //Commit
             }
         }
 
