@@ -255,7 +255,7 @@ public class ControladorTablero {
 
     public void movementEventHandler(javafx.event.ActionEvent actionEvent) {
         Color colorTurnoAux = Color.ROJO;
-
+        //h
 
         Button button = (Button) actionEvent.getSource();
         int indexAux = botonesCasillas.indexOf(button);
