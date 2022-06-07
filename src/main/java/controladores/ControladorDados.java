@@ -53,9 +53,6 @@ public class ControladorDados {
 
     public void eventButton(javafx.event.ActionEvent actionEvent) {
         lanzarDados();
-        System.out.println("Hola");
-        System.out.println(getA());
-        System.out.println(getB());
 
         switch (getA()) {
             case 1 -> {

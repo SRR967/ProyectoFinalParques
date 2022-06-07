@@ -16,6 +16,9 @@ public class App extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/vista/TableroParques.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Parques");
+            stage.setX(100);
+            stage.setY(50);
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
 
@@ -24,6 +27,9 @@ public class App extends Application {
             FXMLLoader fxmlLoader1 = new FXMLLoader(App.class.getResource("/vista/Dados.fxml"));
             Scene scene1 = new Scene(fxmlLoader1.load(),500,400);
             Stage stage1 = new Stage();
+            stage1.setResizable(false);
+            stage1.setX(800);
+            stage1.setY(50);
             stage1.setTitle("Dados");
             stage1.setScene(scene1);
             stage1.show();
