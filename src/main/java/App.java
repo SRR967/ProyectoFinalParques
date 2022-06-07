@@ -12,11 +12,22 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/vista/TableroParques.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Parques");
             stage.setScene(scene);
             stage.show();
+
+
+
+            FXMLLoader fxmlLoader1 = new FXMLLoader(App.class.getResource("/vista/Dados.fxml"));
+            Scene scene1 = new Scene(fxmlLoader1.load(),500,400);
+            Stage stage1 = new Stage();
+            stage1.setTitle("Dados");
+            stage1.setScene(scene1);
+            stage1.show();
+
         }catch (IOException ioe){
             ioe.printStackTrace();
         }
