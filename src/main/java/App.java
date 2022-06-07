@@ -1,10 +1,13 @@
 import componentes.Tablero;
+import controladores.ControladorDados;
+import controladores.ControladorTablero;
 import estructuras.Ficha;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.naming.ldap.Control;
 import java.io.IOException;
 
 public class App extends Application {
@@ -14,6 +17,7 @@ public class App extends Application {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/vista/TableroParques.fxml"));
+
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Parques");
             stage.setX(100);
@@ -22,9 +26,11 @@ public class App extends Application {
             stage.setScene(scene);
             stage.show();
 
+            ControladorTablero controladorTablero = fxmlLoader.getController();
 
 
             FXMLLoader fxmlLoader1 = new FXMLLoader(App.class.getResource("/vista/Dados.fxml"));
+
             Scene scene1 = new Scene(fxmlLoader1.load(),500,400);
             Stage stage1 = new Stage();
             stage1.setResizable(false);
@@ -32,7 +38,15 @@ public class App extends Application {
             stage1.setY(50);
             stage1.setTitle("Dados");
             stage1.setScene(scene1);
+
+            ControladorDados controladorDados = fxmlLoader1.getController();
+            System.out.println("Se esta ejecutando!");
+            controladorTablero.setControladorDados(controladorDados);
+
+
             stage1.show();
+
+
 
         }catch (IOException ioe){
             ioe.printStackTrace();

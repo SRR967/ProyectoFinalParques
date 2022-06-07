@@ -13,13 +13,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class ControladorTablero {
 
     @FXML
     private Button botonesCasillas []= new Button[68];
+    //private ArrayList<Button> botonesCasillas = new ArrayList<>();
     private ArrayList<Button> botonesCarcel   = new ArrayList<>();
+    //Por commit
 
     private ArrayList<Button> botonesCieloRojo = new ArrayList<>();
     private ArrayList<Button> botonesCieloVerde  = new ArrayList<>();
@@ -29,6 +32,7 @@ public class ControladorTablero {
     private Tablero tablero= new Tablero();
     private Ficha ficha= new Ficha();
     private Utilidades utilidades = tablero.getUtilidades();
+    private ControladorDados controladorDados;
 
     @FXML
     private AnchorPane anchorPane;
@@ -173,13 +177,16 @@ public class ControladorTablero {
         }
     }
 
+    public void movementEventHandler(javafx.event.ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
 
-
-    @FXML
-    private void clicCasillaHandler(MouseEvent event) {
-        Button clickedButton = (Button) event.getSource();
-        System.out.println("Hola");
     }
 
+    public ControladorDados getControladorDados() {
+        return controladorDados;
+    }
 
+    public void setControladorDados(ControladorDados controladorDados) {
+        this.controladorDados = controladorDados;
+    }
 }

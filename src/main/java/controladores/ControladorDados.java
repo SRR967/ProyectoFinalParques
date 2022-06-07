@@ -47,8 +47,6 @@ public class ControladorDados {
 
         anchorpane.getChildren().add(imgViewDado1);
         anchorpane.getChildren().add(imgViewDado2);
-
-
     }
 
     public void eventButton(javafx.event.ActionEvent actionEvent) {
@@ -131,7 +129,6 @@ public class ControladorDados {
                 Image imagenAux = new Image("imagenes/Dado6.png");
                 setImgDado2(imagenAux);
                 imgViewDado2.setImage(imagenAux);
-                //Commit
             }
         }
 
@@ -139,9 +136,9 @@ public class ControladorDados {
 
 
 
-    public ControladorDados() {
-        lanzarDados();
-    }
+    //public ControladorDados() {
+    //    lanzarDados();
+    //}
 
     public void lanzarDados() {
         dadoA.generarNumero();

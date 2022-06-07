@@ -8,74 +8,74 @@
   <content>
     <AnchorPane fx:id="anchorPane" prefHeight="641.0" prefWidth="618.0" style="-fx-background-color: gray;">
          <children>
-            <Button layoutX="-11.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SEGURO" />
-            <Button layoutX="-11.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="14.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="39.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="64.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="89.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SALIDA" />
-            <Button layoutX="112.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="134.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="159.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="441.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="466.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SEGURO" />
-            <Button layoutX="211.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="564.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="588.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="613.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="288.0" layoutY="613.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SEGURO" />
-            <Button layoutX="363.0" layoutY="613.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="588.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="564.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SALIDA" />
-            <Button layoutX="363.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="466.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="441.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" textAlignment="RIGHT" />
-            <Button layoutX="413.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="434.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="458.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="483.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SEGURO" />
-            <Button layoutX="507.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="533.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="558.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="584.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="584.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SEGURO" />
-            <Button layoutX="584.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="558.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="533.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="507.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="483.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SALIDA" />
-            <Button layoutX="458.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="434.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="413.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SEGURO" />
-            <Button layoutX="363.0" layoutY="87.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="363.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="288.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SEGURO" />
-            <Button layoutX="211.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="87.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SALIDA" />
-            <Button layoutX="211.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="211.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
-            <Button layoutX="159.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="134.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="112.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="89.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SEGURO" />
-            <Button layoutX="64.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="39.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="14.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
-            <Button layoutX="-11.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="-11.0" layoutY="315.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SEGURO" />
+            <Button layoutX="-11.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="14.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="39.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="64.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="89.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SALIDA" />
+            <Button layoutX="112.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="134.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="159.0" layoutY="391.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="441.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="466.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="491.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="515.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="SEGURO" />
+            <Button layoutX="211.0" layoutY="540.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="564.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="588.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="613.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="288.0" layoutY="613.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SEGURO" />
+            <Button layoutX="363.0" layoutY="613.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="588.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="564.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="540.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="515.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SALIDA" />
+            <Button layoutX="363.0" layoutY="491.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="466.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="441.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black;" textAlignment="RIGHT" />
+            <Button layoutX="413.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="434.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="458.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="483.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="SEGURO" />
+            <Button layoutX="507.0" layoutY="390.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="533.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="558.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="584.0" layoutY="389.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="584.0" layoutY="313.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SEGURO" />
+            <Button layoutX="584.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="558.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="533.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="507.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="483.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SALIDA" />
+            <Button layoutX="458.0" layoutY="237.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="434.0" layoutY="238.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="413.0" layoutY="238.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="188.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="163.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="137.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="112.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="SEGURO" />
+            <Button layoutX="363.0" layoutY="87.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="62.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="37.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="363.0" layoutY="14.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="288.0" layoutY="14.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SEGURO" />
+            <Button layoutX="211.0" layoutY="14.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="39.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="62.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="87.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="112.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SALIDA" />
+            <Button layoutX="211.0" layoutY="137.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="211.0" layoutY="188.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black;" />
+            <Button layoutX="159.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="134.0" layoutY="240.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="112.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="89.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="SEGURO" />
+            <Button layoutX="64.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="39.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="14.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
+            <Button layoutX="-11.0" layoutY="239.0" mnemonicParsing="false" onAction="#movementEventHandler" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black;" />
             <Button layoutX="15.0" layoutY="441.0" mnemonicParsing="false" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="RED" />
             <Button layoutX="440.0" layoutY="441.0" mnemonicParsing="false" prefHeight="196.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="GREEN" />
             <Button layoutX="440.0" layoutY="14.0" mnemonicParsing="false" prefHeight="202.0" prefWidth="196.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="YELLOW" />
