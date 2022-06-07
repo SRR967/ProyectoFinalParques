@@ -43,8 +43,8 @@ public class ControladorTablero {
         int cont=0;
         tablero.inicializar(68);
 
-        tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
-        tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
+        //tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
+        //tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
 
         for (Node node: anchorPane.getChildren()) {
             if (node instanceof Button){
@@ -262,13 +262,16 @@ public class ControladorTablero {
 
         if(controladorDados.getSumaTotal() != 0 && tablero.getCasillas()[indexAux].getFichas().size() != 0 ){
             Ficha fichaAux = tablero.getCasillas()[indexAux].getFichas().get(0);
-            tablero.mover(fichaAux, controladorDados.getA());
+            tablero.mover(fichaAux, controladorDados.getSumaTotal());
+            render();
 
-            for(int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++){
-                if(fichaAux.getCasilla().getFichas().get(i).getColor() != colorTurnoAux){
+        if(fichaAux.getCasilla().getFichas().size() > 1) {
+            for (int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++) {
+                if (fichaAux.getCasilla().getFichas().get(i).getColor() != colorTurnoAux) {
                     tablero.comer(fichaAux.getCasilla().getFichas().get(i));
                 }
             }
+        }
             render();
             controladorDados.setA(0);
             controladorDados.setB(0);

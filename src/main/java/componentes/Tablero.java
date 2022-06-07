@@ -109,6 +109,7 @@ public class Tablero {
         //Por si se hacen mas vainas
     }
 
+    //private Utilidades util = new Utilidades();
 
     public void mover (Ficha ficha, int dadoTotal){
         Casilla casillaActual = ficha.getCasilla();
@@ -116,7 +117,8 @@ public class Tablero {
         for(int i = 0; i < dadoTotal ; i++){
 
                if (casillaActual.tipo == TipoCasilla.PUERTA_CIELO && casillaActual.color == ficha.getColor()){
-                   llegarCaminoCielo(ficha,dadoTotal);
+                   //casillaActual = util.getCieloVerde().get(1);
+                   //llegarCaminoCielo(ficha,dadoTotal);
 
 
                }else {

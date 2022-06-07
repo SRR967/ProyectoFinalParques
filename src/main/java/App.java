@@ -17,7 +17,6 @@ public class App extends Application {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/vista/TableroParques.fxml"));
-
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Parques");
             stage.setX(100);

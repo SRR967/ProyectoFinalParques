@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Utilidades {
 
-    public ArrayList<Casilla>cieloAmarillo = new ArrayList<>();
+    public ArrayList<Casilla> cieloAmarillo = new ArrayList<>();
     public ArrayList<Casilla> cieloVerde = new ArrayList<>();
     public ArrayList<Casilla> cieloRojo = new ArrayList<>();
     public ArrayList<Casilla> cieloAzul = new ArrayList<>();
