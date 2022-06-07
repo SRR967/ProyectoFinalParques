@@ -273,12 +273,14 @@ public class ControladorTablero {
             }
         }
             render();
-            controladorDados.setA(0);
-            controladorDados.setB(0);
         }
         else{
             System.out.println("No hay fichas");
         }
+        controladorDados.setA(0);
+        controladorDados.setB(0);
+        controladorDados.setSumaTotal(0);
+        System.out.println(controladorDados.getSumaTotal());
     }
 
     public ControladorDados getControladorDados() {
