@@ -41,6 +41,7 @@ public class App extends Application {
             ControladorDados controladorDados = fxmlLoader1.getController();
             System.out.println("Se esta ejecutando!");
             controladorTablero.setControladorDados(controladorDados);
+            controladorDados.setControladorTablero(controladorTablero);
 
 
             stage1.show();

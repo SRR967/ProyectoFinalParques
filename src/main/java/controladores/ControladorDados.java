@@ -21,7 +21,7 @@ public class ControladorDados {
 
     private Image imgDado1, imgDado2;
     private ImageView imgViewDado1, imgViewDado2;
-    private Jugador jugador = new Jugador();
+    private ControladorTablero controladorTablero;
 
     @FXML
     private final ImageView imageView = new ImageView();
@@ -38,7 +38,7 @@ public class ControladorDados {
     @FXML
     public void initialize() {
 
-        labelTextoTurno.setText("Es el turno de: "+ jugador.siguiente );
+        labelTextoTurno.setText("Es el turno de: ");
 
         imgDado1 = new Image("imagenes/Dado1.png");
         imgDado2 = new Image("imagenes/Dado1.png");
@@ -155,6 +155,9 @@ public class ControladorDados {
         this.a = dadoA.getNumero();
         this.b = dadoB.getNumero();
         this.sumaTotal = a + b;
+
+        labelTextoTurno.setText("Es el turno de: " + controladorTablero.getJugadorActual().getColor());
+
     }
 
     public int getSumaTotal() {
@@ -239,6 +242,22 @@ public class ControladorDados {
 
     public void setAnchorpane(AnchorPane anchorpane) {
         this.anchorpane = anchorpane;
+    }
+
+    public ControladorTablero getControladorTablero() {
+        return controladorTablero;
+    }
+
+    public void setControladorTablero(ControladorTablero controladorTablero) {
+        this.controladorTablero = controladorTablero;
+    }
+
+    public Label getLabelTextoTurno() {
+        return labelTextoTurno;
+    }
+
+    public void setLabelTextoTurno(Label labelTextoTurno) {
+        this.labelTextoTurno = labelTextoTurno;
     }
 }
 
