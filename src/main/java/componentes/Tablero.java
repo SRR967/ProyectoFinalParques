@@ -118,9 +118,12 @@ public class Tablero {
 
                if (casillaActual.tipo == TipoCasilla.PUERTA_CIELO && casillaActual.color == ficha.getColor()){
                    //casillaActual = util.getCieloVerde().get(1);
-                   llegarCaminoCielo(ficha,dadoTotal - i);
-
-
+                   if(dadoTotal - i <= 7){
+                       llegarCaminoCielo(ficha,dadoTotal - i);
+                   }
+                    else{
+                        break;
+                   }
                }else {
                    casillaActual = casillaActual.siguiente;
                }

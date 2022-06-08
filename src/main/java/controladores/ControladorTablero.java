@@ -44,7 +44,7 @@ public class ControladorTablero {
         int cont=0;
         tablero.inicializar(68);
 
-        //tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
+        tablero.getCasillas()[65].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[65]));
         //tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
 
         jugadorActual = tablero.getTurnos().getJugadores()[0];//Inicializado jugador rojo
