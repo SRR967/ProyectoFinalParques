@@ -283,7 +283,7 @@ public class ControladorTablero {
             controladorDados.setSumaTotal(0);
             jugadorActual = jugadorActual.siguiente;
 
-            render();
+            render();//si
         } else {
             System.out.println("No hay fichas");
         }
