@@ -34,6 +34,7 @@ public class ControladorTablero {
     private Ficha ficha= new Ficha();
     private Utilidades utilidades = tablero.getUtilidades();
     private ControladorDados controladorDados;
+    private Jugador jugadorActual;
 
     @FXML
     private AnchorPane anchorPane;
@@ -45,6 +46,11 @@ public class ControladorTablero {
 
         //tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
         //tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
+
+        jugadorActual = tablero.getTurnos().getJugadores()[0];//Inicializado jugador rojo
+        System.out.println("Turno"+jugadorActual.getColor());
+
+        //utilidades.getCieloAmarillo().get(3).getFichas().add(new Ficha(Color.AMARILLO, utilidades.getCieloAmarillo().get(3)));
 
         for (Node node: anchorPane.getChildren()) {
             if (node instanceof Button){
@@ -84,6 +90,8 @@ public class ControladorTablero {
             }
 
         }
+
+
         //botonesCasillas[1].setText(ficha.toString());
         //botonesCasillas[1].setText(botonesCasillas[1].getText().concat(ficha.toString()));
 
@@ -197,11 +205,8 @@ public class ControladorTablero {
         String auxStyle = "";
 
         renderCarceles(utilidades.getCarcelRojo(), botonesCarcel.get(0));
-
         renderCarceles(utilidades.getCarcelVerde(), botonesCarcel.get(1));
-
         renderCarceles(utilidades.getCarcelAmarillo(), botonesCarcel.get(2));
-
         renderCarceles(utilidades.getCarcelAzul(), botonesCarcel.get(3));
 
         renderCielo(utilidades.getCieloRojo(), botonesCieloRojo);
@@ -254,32 +259,38 @@ public class ControladorTablero {
     }
 
     public void movementEventHandler(javafx.event.ActionEvent actionEvent) {
-        Color colorTurnoAux = Color.ROJO;
-        //h
 
         Button button = (Button) actionEvent.getSource();
         int indexAux = botonesCasillas.indexOf(button);
 
-        if(controladorDados.getSumaTotal() != 0 && tablero.getCasillas()[indexAux].getFichas().size() != 0 ){
+        if (controladorDados.getSumaTotal() != 0 && tablero.getCasillas()[indexAux].getFichas().size() != 0 &&
+                tablero.getCasillas()[indexAux].getFichas().get(0).getColor() == jugadorActual.getColor()) {
             Ficha fichaAux = tablero.getCasillas()[indexAux].getFichas().get(0);
             tablero.mover(fichaAux, controladorDados.getSumaTotal());
             render();
 
-        if(fichaAux.getCasilla().getFichas().size() > 1) {
-            for (int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++) {
-                if (fichaAux.getCasilla().getFichas().get(i).getColor() != colorTurnoAux) {
-                    tablero.comer(fichaAux.getCasilla().getFichas().get(i));
+            if (fichaAux.getCasilla().getFichas().size() > 1) {
+                for (int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++) {
+                    if (fichaAux.getCasilla().getFichas().get(i).getColor() != jugadorActual.getColor()) {
+                        tablero.comer(fichaAux.getCasilla().getFichas().get(i));
+                        i--;
+                    }
                 }
             }
-        }
+
+            controladorDados.setA(0);
+            controladorDados.setB(0);
+            controladorDados.setSumaTotal(0);
+            jugadorActual = jugadorActual.siguiente;
+
             render();
-        }
-        else{
+        } else {
             System.out.println("No hay fichas");
         }
-        controladorDados.setA(0);
-        controladorDados.setB(0);
-        controladorDados.setSumaTotal(0);
+
+        //controladorDados.setA(0);
+        //controladorDados.setB(0);
+        //controladorDados.setSumaTotal(0);
         System.out.println(controladorDados.getSumaTotal());
     }
 
@@ -295,14 +306,31 @@ public class ControladorTablero {
 
         System.out.println("A");
 
-        if(controladorDados.getA() == controladorDados.getB() && controladorDados.getSumaTotal() !=0){
-            Button button = (Button) actionEvent.getSource();
-            System.out.println(utilidades.getCarceles().get(botonesCarcel.indexOf(button)).size());
-            tablero.salirCarcelInicio(utilidades.getCarceles().get(botonesCarcel.indexOf(button)));
-            render();
-            controladorDados.setA(0);
-            controladorDados.setB(0);
-        }
+        Button button = (Button) actionEvent.getSource();
+        System.out.println(utilidades.getCarceles().get(botonesCarcel.indexOf(button)).size());
 
+        if(controladorDados.getA() == controladorDados.getB() && controladorDados.getSumaTotal() !=0 &&
+                utilidades.getCarceles().get(botonesCarcel.indexOf(button)).size() != 0){
+
+            if(!jugadorActual.isFichasSacadas()) {
+                Ficha fichaAux = (Ficha) utilidades.getCarceles().get(botonesCarcel.indexOf(button)).get(0);
+                tablero.salirCarcelInicio(utilidades.getCarceles().get(botonesCarcel.indexOf(button)));
+                jugadorActual.setFichasSacadas(true);
+                render();
+            }
+            else{
+                tablero.salirCarcelTurno(jugadorActual.getColor());
+                render();
+            }
+        }
+        else{
+            System.out.println("No hay fichas en la carcel");
+        }
+        controladorDados.setA(0);
+        controladorDados.setB(0);
+        controladorDados.setSumaTotal(0);
+        jugadorActual = jugadorActual.siguiente;
     }
+
 }
+

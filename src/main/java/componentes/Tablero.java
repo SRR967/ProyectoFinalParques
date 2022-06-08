@@ -117,8 +117,8 @@ public class Tablero {
         for(int i = 0; i < dadoTotal ; i++){
 
                if (casillaActual.tipo == TipoCasilla.PUERTA_CIELO && casillaActual.color == ficha.getColor()){
-                   casillaActual = util.getCieloVerde().get(1);
-                   llegarCaminoCielo(ficha,dadoTotal);
+                   //casillaActual = util.getCieloVerde().get(1);
+                   llegarCaminoCielo(ficha,dadoTotal - i);
 
 
                }else {
@@ -360,5 +360,19 @@ public class Tablero {
         this.dado2 = dado2;
     }
 
+    public Turno getTurnos() {
+        return turnos;
+    }
 
+    public void setTurnos(Turno turnos) {
+        this.turnos = turnos;
+    }
+
+    public Utilidades getUtil() {
+        return util;
+    }
+
+    public void setUtil(Utilidades util) {
+        this.util = util;
+    }
 }

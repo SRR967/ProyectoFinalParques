@@ -8,7 +8,7 @@ public class Jugador {
     public Jugador anterior;
     private Color color;
     private boolean isGanador;
-    private boolean fichasSacadas;
+    private boolean fichasSacadas = false;
 
     public boolean isGanador() {
         return isGanador;
@@ -48,5 +48,13 @@ public class Jugador {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public boolean isFichasSacadas() {
+        return fichasSacadas;
+    }
+
+    public void setFichasSacadas(boolean fichasSacadas) {
+        this.fichasSacadas = fichasSacadas;
     }
 }
