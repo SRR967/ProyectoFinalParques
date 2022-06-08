@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Polygon;
 
 
 import java.util.ArrayList;
@@ -40,9 +41,33 @@ public class ControladorTablero {
     private AnchorPane anchorPane;
 
     @FXML
+    private Button cieloVerde;
+    @FXML
+    private Button cieloRojo;
+    @FXML
+    private Button cieloAmarillo;
+    @FXML
+    private Button cieloAzul;
+
+
+
+    @FXML
     public void initialize() {
         int cont=0;
         tablero.inicializar(68);
+
+        Polygon poligonoVerde = new Polygon();
+        poligonoVerde.getPoints().addAll(new Double[]{0.0D, 40.0D, 40.0D, 40.0D, 20.0D, 20.0D});
+        this.cieloVerde.setShape(poligonoVerde);
+        Polygon poligonoAzul = new Polygon();
+        poligonoAzul.getPoints().addAll(new Double[]{0.0D, 20.0D, 40.0D, 20.0D, 20.0D, 50.0D});
+        this.cieloAzul.setShape(poligonoAzul);
+        Polygon poligonoAmarillo = new Polygon();
+        poligonoAmarillo.getPoints().addAll(new Double[]{0.0D, 20.0D, 40.0D, 20.0D, 20.0D, 50.0D});
+        this.cieloAmarillo.setShape(poligonoAmarillo);
+        Polygon poligonoRojo = new Polygon();
+        poligonoRojo.getPoints().addAll(new Double[]{0.0D, 20.0D, 40.0D, 20.0D, 20.0D, 50.0D});
+        this.cieloRojo.setShape(poligonoRojo);
 
         //tablero.getCasillas()[2].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[2]));
         //tablero.getCasillas()[7].getFichas().add(new Ficha(Color.AMARILLO, tablero.getCasillas()[7]));
@@ -60,19 +85,19 @@ public class ControladorTablero {
                         Button button = ((Button) node);
                         botonesCarcel.add(button);
                         cont++;
-                    }else if(cont<79){
+                    }else if(cont<80){
                         Button button = ((Button) node);
                         botonesCieloRojo.add(button);
                         cont++;
-                    }else if (cont<86){
+                    }else if (cont<88){
                         Button button = ((Button) node);
                         botonesCieloVerde.add(button);
                         cont++;
-                    }else if (cont<93){
+                    }else if (cont<96){
                         Button button = ((Button) node);
                         botonesCieloAmarillo.add(button);
                         cont++;
-                    }else if (cont<99){
+                    }else if (cont<105){
                         Button button = ((Button) node);
                         botonesCieloAzul.add(button);
                         cont++;

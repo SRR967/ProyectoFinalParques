@@ -1,7 +1,9 @@
 package controladores;
 import estructuras.Dado;
+import estructuras.Jugador;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +21,7 @@ public class ControladorDados {
 
     private Image imgDado1, imgDado2;
     private ImageView imgViewDado1, imgViewDado2;
+    private Jugador jugador = new Jugador();
 
     @FXML
     private final ImageView imageView = new ImageView();
@@ -30,7 +33,12 @@ public class ControladorDados {
     private AnchorPane anchorpane;
 
     @FXML
+    private Label labelTextoTurno;
+
+    @FXML
     public void initialize() {
+
+        labelTextoTurno.setText("Es el turno de: "+ jugador.siguiente );
 
         imgDado1 = new Image("imagenes/Dado1.png");
         imgDado2 = new Image("imagenes/Dado1.png");

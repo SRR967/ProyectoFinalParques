@@ -87,6 +87,7 @@
             <Button layoutX="112.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" />
             <Button layoutX="134.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" />
             <Button layoutX="159.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="90.0" style="-fx-border-color: black; -fx-background-color: #FB6569;" text="7" />
+            <Button fx:id="cieloRojo" layoutX="150.0" layoutY="274.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="227.0" rotate="-90.0" style="-fx-background-color: #FB6569; -fx-border-color: black;" text="cieloRojo" textFill="#fb6569" />
             <Button layoutX="288.0" layoutY="588.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" />
             <Button layoutX="287.0" layoutY="564.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" />
             <Button layoutX="287.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" />
@@ -94,6 +95,7 @@
             <Button layoutX="287.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" />
             <Button layoutX="287.0" layoutY="466.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" />
             <Button layoutX="287.0" layoutY="441.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-border-color: black; -fx-background-color: #61FF6D;" text="7" />
+            <Button fx:id="cieloVerde" layoutX="210.0" layoutY="322.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="228.0" style="-fx-scale-shape: width: 0; height: 0; border-right: 100px solid transparent; border-top: 100px solid transparent; border-left: 100px solid transparent; border-bottom: 100px solid #f0ad4e; -fx-background-color: #61FF6D; -fx-border-color: black;" text="cieloVerde" textFill="#61ff6d" />
             <Button layoutX="558.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" />
             <Button layoutX="533.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" />
             <Button layoutX="507.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" />
@@ -101,6 +103,7 @@
             <Button layoutX="458.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" />
             <Button layoutX="434.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" />
             <Button layoutX="413.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="270.0" style="-fx-border-color: black; -fx-background-color: #ECFF73;" text="7" />
+            <Button fx:id="cieloAmarillo" layoutX="264.0" layoutY="268.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="227.0" rotate="90.0" style="-fx-background-color: #ECFF73; -fx-border-color: black;" text="cieloAmrillo" textFill="#ecff73" />
             <Button layoutX="287.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" />
             <Button layoutX="287.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" />
             <Button layoutX="287.0" layoutY="87.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" />
@@ -108,7 +111,7 @@
             <Button layoutX="287.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" />
             <Button layoutX="287.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" />
             <Button layoutX="287.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: #73F0FF;" text="7" />
-            <Circle fill="DODGERBLUE" layoutX="326.0" layoutY="328.0" radius="111.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="OUTSIDE" />
+            <Button fx:id="cieloAzul" layoutX="211.0" layoutY="216.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="226.0" style="-fx-background-color: #73F0FF; -fx-border-color: black;" text="cieloAzul" textFill="#73f0ff" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
