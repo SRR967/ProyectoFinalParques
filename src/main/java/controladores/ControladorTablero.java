@@ -76,7 +76,7 @@ public class ControladorTablero {
         jugadorActual = tablero.getTurnos().getJugadores()[0];//Inicializado jugador rojo
         System.out.println("Turno"+jugadorActual.getColor());
 
-        //utilidades.getCieloAmarillo().get(3).getFichas().add(new Ficha(Color.AMARILLO, utilidades.getCieloAmarillo().get(3)));
+        //utilidades.getCieloAmarillo().get(3).getFichas().add(new Ficha(Color.AMARILLO, utilidades.getCieloAmarillo().get(3)));s
 
         for (Node node: anchorPane.getChildren()) {
             if (node instanceof Button){
