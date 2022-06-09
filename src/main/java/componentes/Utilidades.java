@@ -19,6 +19,7 @@ public class Utilidades {
     private ArrayList<Ficha> carcelAzul= new ArrayList<>();
 
     private  ArrayList<ArrayList> carceles = new ArrayList<>();
+    private  ArrayList<ArrayList> cielos = new ArrayList<>();
 
     private ArrayList<Color> colores= new ArrayList<Color>();
     private int casillaAux = 69;
@@ -40,6 +41,12 @@ public class Utilidades {
         carceles.add(carcelVerde);
         carceles.add(carcelAmarillo);
         carceles.add(carcelAzul);
+
+        //Cielos
+        cielos.add(cieloRojo);
+        cielos.add(cieloVerde);
+        cielos.add(cieloAmarillo);
+        cielos.add(cieloAzul);
     }
 
     public void llenarCasillasCielo(ArrayList<Casilla> casillasCielo){
@@ -137,5 +144,13 @@ public class Utilidades {
 
     public void setCasillaAux(int casillaAux) {
         this.casillaAux = casillaAux;
+    }
+
+    public ArrayList<ArrayList> getCielos() {
+        return cielos;
+    }
+
+    public void setCielos(ArrayList<ArrayList> cielos) {
+        this.cielos = cielos;
     }
 }

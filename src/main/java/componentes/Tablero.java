@@ -2,6 +2,7 @@ package componentes;
 
 import enumeraciones.Color;
 import estructuras.*;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 
@@ -109,7 +110,7 @@ public class Tablero {
 
     }
 
-    private Utilidades util = new Utilidades();
+    //private Utilidades util = new Utilidades();
 
     public void mover (Ficha ficha, int dadoTotal){
         Casilla casillaActual = ficha.getCasilla();
@@ -118,24 +119,23 @@ public class Tablero {
 
                if (casillaActual.tipo == TipoCasilla.PUERTA_CIELO && casillaActual.color == ficha.getColor()){
                    //casillaActual = util.getCieloVerde().get(1);
-                   if(dadoTotal - i <= 7){
+                   if(dadoTotal - i <= 8){
                        llegarCaminoCielo(ficha,dadoTotal - i);
                    }
-                    else{
-                        break;
-                   }
+                   break;
                }else {
                    casillaActual = casillaActual.siguiente;
                }
+
+            //Modificar datos para coincidir con el nuevo destino
+            casillaActual.getFichas().add(ficha); //Añadir ficha al arraylist de la casilla destino
+
+            int indexPosAnterior = ficha.getCasilla().getFichas().indexOf(ficha);
+            ficha.getCasilla().getFichas().remove(indexPosAnterior); // Eliminar la casilla anterior de la ficha
+
+            ficha.setCasilla(casillaActual); //Setear el nuevo dato de casilla en ficha
         }
 
-        //Modificar datos para coincidir con el nuevo destino
-        casillaActual.getFichas().add(ficha); //Añadir ficha al arraylist de la casilla destino
-
-        int indexPosAnterior = ficha.getCasilla().getFichas().indexOf(ficha);
-        ficha.getCasilla().getFichas().remove(indexPosAnterior); // Eliminar la casilla anterior de la ficha
-
-        ficha.setCasilla(casillaActual); //Setear el nuevo dato de casilla en ficha
     }
 
     public void comer(Ficha ficha){
@@ -196,21 +196,33 @@ public class Tablero {
         if(utilidades.getCieloRojo().get(7).getFichas().size() >= 4){
             turnos.getJugadores()[0].setGanador(true);
             System.out.println("Rojo ha ganado");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "El jugador ROJO ha ganado");
+            alert.setTitle("Ganador");
+            alert.show();
             return true;
         }
         else if(utilidades.getCieloVerde().get(7).getFichas().size() >= 4){
             turnos.getJugadores()[1].setGanador(true);
             System.out.println("Azul ha ganado");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "El jugador VERDE ha ganado");
+            alert.setTitle("Ganador");
+            alert.show();
             return true;
         }
         else if(utilidades.getCieloAmarillo().get(7).getFichas().size() >= 4){
             turnos.getJugadores()[2].setGanador(true);
             System.out.println("Amarillo ha ganado");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "El jugador AMARILLO ha ganado");
+            alert.setTitle("Ganador");
+            alert.show();
             return true;
         }
         else if(utilidades.getCieloAzul().get(7).getFichas().size() >= 4){
             turnos.getJugadores()[3].setGanador(true);
             System.out.println("Azul ha ganado");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "El jugador AZUL ha ganado");
+            alert.setTitle("Ganador");
+            alert.show();
             return true;
         }
         else{
@@ -288,30 +300,35 @@ public class Tablero {
     }
     //@TODO Comprobacion posible movimiento {Hacer en control turnos}
 
-    public void movimientoCielo(Ficha ficha, int dado){
-        switch (ficha.getColor()){
+    public void movimientoCielo(int j, int dado, Color color){
+        Ficha ficha;
+        switch (color){
             case ROJO -> {
-                utilidades.getCieloRojo().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha = utilidades.getCieloRojo().get(j).getFichas().get(0);
+                utilidades.getCieloRojo().get(j + dado).getFichas().add(ficha);
                 ficha.getCasilla().getFichas().remove(ficha);
-                ficha.setCasilla(utilidades.getCieloRojo().get(ficha.getCasilla().getId() + dado));
+                ficha.setCasilla(utilidades.getCieloRojo().get(j + dado));
             }
 
             case VERDE -> {
-                utilidades.getCieloVerde().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha = utilidades.getCieloVerde().get(j).getFichas().get(0);
+                utilidades.getCieloVerde().get(j + dado).getFichas().add(ficha);
                 ficha.getCasilla().getFichas().remove(ficha);
-                ficha.setCasilla(utilidades.getCieloVerde().get(ficha.getCasilla().getId() + dado));
+                ficha.setCasilla(utilidades.getCieloVerde().get(j + dado));
             }
 
             case AMARILLO -> {
-                utilidades.getCieloAmarillo().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha = utilidades.getCieloAmarillo().get(j).getFichas().get(0);
+                utilidades.getCieloAmarillo().get(j + dado).getFichas().add(ficha);
                 ficha.getCasilla().getFichas().remove(ficha);
-                ficha.setCasilla(utilidades.getCieloAmarillo().get(ficha.getCasilla().getId() + dado));
+                ficha.setCasilla(utilidades.getCieloAmarillo().get(j + dado));
             }
 
             case AZUL -> {
-                utilidades.getCieloAzul().get(ficha.getCasilla().getId() + dado).getFichas().add(ficha);
+                ficha = utilidades.getCieloAzul().get(j).getFichas().get(0);
+                utilidades.getCieloAzul().get(j + dado).getFichas().add(ficha);
                 ficha.getCasilla().getFichas().remove(ficha);
-                ficha.setCasilla(utilidades.getCieloAzul().get(ficha.getCasilla().getId() + dado));
+                ficha.setCasilla(utilidades.getCieloAzul().get(j + dado));
             }
         }
     }
@@ -371,11 +388,4 @@ public class Tablero {
         this.turnos = turnos;
     }
 
-    public Utilidades getUtil() {
-        return util;
-    }
-
-    public void setUtil(Utilidades util) {
-        this.util = util;
-    }
 }

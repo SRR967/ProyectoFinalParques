@@ -57,6 +57,18 @@ public class ControladorDados {
         anchorpane.getChildren().add(imgViewDado2);
     }
 
+    public void saltarTurno(){
+        a = 0;
+        b = 0;
+        sumaTotal = 0;
+        dadoA.setUsado(false);
+        dadoB.setUsado(false);
+        controladorTablero.setJugadorActual(controladorTablero.getJugadorActual().siguiente);
+        lanzarDados();
+        actualizarGrafico();
+
+    }
+
     public void eventButton(javafx.event.ActionEvent actionEvent) {
         lanzarDados();
 
@@ -149,15 +161,114 @@ public class ControladorDados {
     //}
 
     public void lanzarDados() {
-        dadoA.generarNumero();
-        dadoB.generarNumero();
+        if(!dadoA.isUsado() && !dadoB.isUsado()) {
+            dadoA.generarNumero();
+            dadoB.generarNumero();
 
-        this.a = dadoA.getNumero();
-        this.b = dadoB.getNumero();
-        this.sumaTotal = a + b;
+            this.a = dadoA.getNumero();
+            this.b = dadoB.getNumero();
+            this.sumaTotal = a + b;
 
-        labelTextoTurno.setText("Es el turno de: " + controladorTablero.getJugadorActual().getColor());
+            labelTextoTurno.setText("Es el turno de: " + controladorTablero.getJugadorActual().getColor());
+            actualizarGrafico();
+        }
 
+    }
+
+    public void actualizarGrafico(){
+        if(dadoA.isUsado()){
+            imgViewDado1.setOpacity(0.67);
+        }
+        else{
+            imgViewDado1.setOpacity(1.0);
+        }
+        if (dadoB.isUsado()){
+            imgViewDado2.setOpacity(0.67);
+
+        }
+        else{
+            imgViewDado2.setOpacity(1.0);
+        }
+
+        switch (getA()) {
+            case 1 -> {
+                Image imagenAux = new Image("imagenes/Dado1.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+            }
+            case 2 -> {
+                Image imagenAux = new Image("imagenes/Dado2.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+
+            }
+
+            case 3 -> {
+                Image imagenAux = new Image("imagenes/Dado3.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+
+            }
+
+            case 4 -> {
+                Image imagenAux = new Image("imagenes/Dado4.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+
+            }
+
+            case 5 -> {
+                Image imagenAux = new Image("imagenes/Dado5.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+
+            }
+
+            case 6 -> {
+                Image imagenAux = new Image("imagenes/Dado6.png");
+                setImgDado1(imagenAux);
+                imgViewDado1.setImage(imagenAux);
+
+            }
+        }
+        switch (getB()) {
+            case 1 -> {
+                Image imagenAux = new Image("imagenes/Dado1.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+
+            }
+            case 2 -> {
+                Image imagenAux = new Image("imagenes/Dado2.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+
+            }
+
+            case 3 -> {
+                Image imagenAux = new Image("imagenes/Dado3.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+            }
+
+            case 4 -> {
+                Image imagenAux = new Image("imagenes/Dado4.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+            }
+
+            case 5 -> {
+                Image imagenAux = new Image("imagenes/Dado5.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+            }
+
+            case 6 -> {
+                Image imagenAux = new Image("imagenes/Dado6.png");
+                setImgDado2(imagenAux);
+                imgViewDado2.setImage(imagenAux);
+            }
+        }
     }
 
     public int getSumaTotal() {

@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Polygon;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ControladorTablero {
@@ -24,7 +25,7 @@ public class ControladorTablero {
     //private Button botonesCasillas []= new Button[68];
     private ArrayList<Button> botonesCasillas = new ArrayList<>();
     private ArrayList<Button> botonesCarcel   = new ArrayList<>();
-    //Por commit
+    private ArrayList<ArrayList> botonesCielo = new ArrayList<>();
 
     private ArrayList<Button> botonesCieloRojo = new ArrayList<>();
     private ArrayList<Button> botonesCieloVerde  = new ArrayList<>();
@@ -56,7 +57,6 @@ public class ControladorTablero {
         int cont=0;
         tablero.inicializar(68);
 
-        tablero.getCasillas()[65].getFichas().add(new Ficha(Color.ROJO , tablero.getCasillas()[65]));
         Polygon poligonoVerde = new Polygon();
         poligonoVerde.getPoints().addAll(new Double[]{0.0D, 40.0D, 40.0D, 40.0D, 20.0D, 20.0D});
         this.cieloVerde.setShape(poligonoVerde);
@@ -118,14 +118,24 @@ public class ControladorTablero {
         }
 
 
-        //botonesCasillas[1].setText(ficha.toString());
-        //botonesCasillas[1].setText(botonesCasillas[1].getText().concat(ficha.toString()));
 
         botonesCarcel.get(0).setStyle(botonesCarcel.get(0).getStyle() + "-fx-text-fill: red");
         botonesCarcel.get(1).setStyle(botonesCarcel.get(1).getStyle() + "-fx-text-fill: green");
         botonesCarcel.get(2).setStyle(botonesCarcel.get(2).getStyle() + "-fx-text-fill: #786706");
         botonesCarcel.get(3).setStyle(botonesCarcel.get(3).getStyle() + "-fx-text-fill: blue");
 
+        botonesCielo.add(botonesCieloRojo);
+        botonesCielo.add(botonesCieloVerde);
+        botonesCielo.add(botonesCieloAmarillo);
+        botonesCielo.add(botonesCieloAzul);
+
+/*
+        utilidades.getCieloRojo().get(7).getFichas().add(new Ficha(Color.ROJO, utilidades.getCieloRojo().get(7)));
+        utilidades.getCieloRojo().get(7).getFichas().add(new Ficha(Color.ROJO, utilidades.getCieloRojo().get(7)));
+        utilidades.getCieloRojo().get(7).getFichas().add(new Ficha(Color.ROJO, utilidades.getCieloRojo().get(7)));
+        utilidades.getCieloRojo().get(4).getFichas().add(new Ficha(Color.ROJO, utilidades.getCieloRojo().get(4)));
+
+*/
         render();
     }
 
@@ -256,7 +266,8 @@ public class ControladorTablero {
 
     @FXML
     private void renderCielo(ArrayList<Casilla> casillasCielo, ArrayList<Button> botonesCielo){
-        for(int i = 0; i < casillasCielo.size()-1; i ++){
+        for(int i = 0; i < casillasCielo.size(); i ++){
+            String textAux = "";
             if(casillasCielo.get(i).getFichas().size() > 0){
 
                 for(int j = 0; j < casillasCielo.get(i).getFichas().size(); j++){
@@ -275,11 +286,13 @@ public class ControladorTablero {
                             botonesCielo.get(i).setStyle(botonesCielo.get(i).getStyle()+"-fx-text-fill: blue;");
                         }
                     }
-
-
-                    botonesCielo.get(i).setText(botonesCielo.get(i).getText() + ficha.toString());
+                    textAux = textAux + ficha.toString();
+                    botonesCielo.get(i).setText(textAux);
                 }
 
+            }else{
+                textAux = "";
+                botonesCielo.get(i).setText(textAux);
             }
         }
     }
@@ -291,9 +304,19 @@ public class ControladorTablero {
 
         if (controladorDados.getSumaTotal() != 0 && tablero.getCasillas()[indexAux].getFichas().size() != 0 &&
                 tablero.getCasillas()[indexAux].getFichas().get(0).getColor() == jugadorActual.getColor()) {
+
             Ficha fichaAux = tablero.getCasillas()[indexAux].getFichas().get(0);
-            tablero.mover(fichaAux, controladorDados.getSumaTotal());
-            render();
+            if(!controladorDados.getDadoA().isUsado() && !controladorDados.getDadoB().isUsado()){
+                tablero.mover(fichaAux, controladorDados.getA());
+                controladorDados.getDadoA().setUsado(true);
+                render();
+                controladorDados.actualizarGrafico();
+            }else if (controladorDados.getDadoA().isUsado() && !controladorDados.getDadoB().isUsado()){
+                tablero.mover(fichaAux, controladorDados.getB());
+                controladorDados.getDadoB().setUsado(true);
+                render();
+                controladorDados.actualizarGrafico();
+            }
 
             if (fichaAux.getCasilla().getFichas().size() > 1) {
                 for (int i = 0; i < fichaAux.getCasilla().getFichas().size(); i++) {
@@ -304,19 +327,20 @@ public class ControladorTablero {
                 }
             }
 
-            controladorDados.setA(0);
-            controladorDados.setB(0);
-            controladorDados.setSumaTotal(0);
-            jugadorActual = jugadorActual.siguiente;
+            if(controladorDados.getDadoA().isUsado() && controladorDados.getDadoB().isUsado()) {
+                controladorDados.setA(0);
+                controladorDados.setB(0);
+                controladorDados.setSumaTotal(0);
+                controladorDados.getDadoA().setUsado(false);
+                controladorDados.getDadoB().setUsado(false);
+                jugadorActual = jugadorActual.siguiente;
+            }
 
             render();
         } else {
             System.out.println("No hay fichas");
         }
 
-        //controladorDados.setA(0);
-        //controladorDados.setB(0);
-        //controladorDados.setSumaTotal(0);
         System.out.println(controladorDados.getSumaTotal());
     }
 
@@ -328,11 +352,140 @@ public class ControladorTablero {
         this.controladorDados = controladorDados;
     }
 
+    public void movementHandlerCielo(ActionEvent actionEvent){
+        Button button = (Button) actionEvent.getSource();
+        System.out.println("Primera parte");
+
+        for(int i = 0; i < botonesCielo.size(); i++){
+            if(botonesCielo.get(i).contains(button)){ //se ve el index
+
+                System.out.println("Segunda parte");
+
+                if(controladorDados.getSumaTotal() != 0){
+
+                    System.out.println("Tercera Parte");
+                    for(int j = 0; j < utilidades.getCielos().get(i).size(); j++){ //Arraylist de casillas
+                        ArrayList<Casilla> arrayAuxCasillas = utilidades.getCielos().get(i);
+
+                        if(arrayAuxCasillas.get(j).getFichas().size() != 0 &&
+                                arrayAuxCasillas.get(j).getFichas().get(0).getColor() == jugadorActual.getColor()){//Si hay fichas del mismo color
+                            System.out.println("Cuarta Parte");
+
+                            if(!controladorDados.getDadoA().isUsado() && !controladorDados.getDadoB().isUsado()){
+                                if(j + controladorDados.getA() <= arrayAuxCasillas.size() -1){
+                                    tablero.movimientoCielo(j, controladorDados.getA(), jugadorActual.getColor());
+                                    controladorDados.getDadoA().setUsado(true);
+                                    //jugadorActual = jugadorActual.siguiente;
+                                    controladorDados.lanzarDados();
+                                    render();
+                                    controladorDados.actualizarGrafico();
+                                    tablero.comprobarGanador();
+                                }else if (j + controladorDados.getB() <= arrayAuxCasillas.size() - 1) {
+                                    tablero.movimientoCielo(j, controladorDados.getB(), jugadorActual.getColor());
+                                    controladorDados.getDadoB().setUsado(true);
+                                    //jugadorActual = jugadorActual.siguiente;
+                                    render();
+                                    controladorDados.actualizarGrafico();
+                                    tablero.comprobarGanador();
+                                }else{
+                                    System.out.println("Sobrecarga");
+                                    controladorDados.setA(0);
+                                    controladorDados.setB(0);
+                                    controladorDados.setSumaTotal(0);
+                                    controladorDados.getDadoA().setUsado(false);
+                                    controladorDados.getDadoB().setUsado(false);
+                                    //jugadorActual = jugadorActual.siguiente;
+                                    break;
+                                }
+                            }
+
+                            else if(controladorDados.getDadoA().isUsado() && !controladorDados.getDadoB().isUsado()){
+                                    if(j + controladorDados.getB() <= arrayAuxCasillas.size() -1){
+                                        tablero.movimientoCielo(j, controladorDados.getB(), jugadorActual.getColor());
+                                        controladorDados.getDadoB().setUsado(true);
+                                        render();
+                                        controladorDados.actualizarGrafico();
+                                        //jugadorActual = jugadorActual.siguiente;
+                                        tablero.comprobarGanador();
+                                    }
+                                    else{
+                                        System.out.println("Sobrecarga");
+                                        controladorDados.setA(0);
+                                        controladorDados.setB(0);
+                                        controladorDados.setSumaTotal(0);
+                                        controladorDados.getDadoA().setUsado(false);
+                                        controladorDados.getDadoB().setUsado(false);
+                                        //jugadorActual = jugadorActual.siguiente;
+                                        break;
+                                    }
+                            }
+                            else if(!controladorDados.getDadoA().isUsado() && controladorDados.getDadoB().isUsado()){
+                                if(j + controladorDados.getA() <= arrayAuxCasillas.size() -1) {
+                                    tablero.movimientoCielo(j, controladorDados.getA(), jugadorActual.getColor());
+                                    controladorDados.getDadoA().setUsado(true);
+                                    render();
+                                    controladorDados.actualizarGrafico();
+                                    //jugadorActual = jugadorActual.siguiente;
+                                    tablero.comprobarGanador();
+                                }else{
+                                    System.out.println("Sobrecarga");
+                                    controladorDados.setA(0);
+                                    controladorDados.setB(0);
+                                    controladorDados.setSumaTotal(0);
+                                    controladorDados.getDadoA().setUsado(false);
+                                    controladorDados.getDadoB().setUsado(false);
+                                    //jugadorActual = jugadorActual.siguiente;
+                                    break;
+                                }
+                            }
+                            else{
+                                System.out.println("Sobrecarga");
+                                controladorDados.setA(0);
+                                controladorDados.setB(0);
+                                controladorDados.setSumaTotal(0);
+                                controladorDados.getDadoA().setUsado(false);
+                                controladorDados.getDadoB().setUsado(false);
+                                //jugadorActual = jugadorActual.siguiente;
+                                break;
+                            }
+
+                            /*
+                            if(j + controladorDados.getSumaTotal() <= arrayAuxCasillas.size() - 1){//Si los dados no sobrepasan las casillas disponibles
+
+                                System.out.println("Quinta Parte");
+                                tablero.movimientoCielo(j, controladorDados.getSumaTotal(), jugadorActual.getColor());
+                                render();
+                                jugadorActual = jugadorActual.siguiente;
+                                tablero.comprobarGanador();
+
+                            }
+                            else{
+                                System.out.println("Sobrecarga");
+                                jugadorActual = jugadorActual.siguiente;
+                            }*/
+
+                        }
+                    }
+                }else{
+                    System.out.println("Sobrecarga");
+                    controladorDados.setA(0);
+                    controladorDados.setB(0);
+                    controladorDados.setSumaTotal(0);
+                    controladorDados.getDadoA().setUsado(false);
+                    controladorDados.getDadoB().setUsado(false);
+                    jugadorActual = jugadorActual.siguiente;
+                    break;
+                }
+            }
+        }
+
+    }
+
     public void salirCarcelController(ActionEvent actionEvent) {
 
         System.out.println("A");
-
         Button button = (Button) actionEvent.getSource();
+
         System.out.println(utilidades.getCarceles().get(botonesCarcel.indexOf(button)).size());
 
         if(controladorDados.getA() == controladorDados.getB() && controladorDados.getSumaTotal() !=0 &&
